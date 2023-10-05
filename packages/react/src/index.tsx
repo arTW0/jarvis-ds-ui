@@ -1,5 +1,12 @@
-import { colors } from '@jarvis-ui/tokens'
+import { styled } from './styles'
+
+const Button = styled('button', {
+  fontFamily: '$default',
+  backgroundColor: '$gray100',
+  borderRadius: '$md',
+  padding: '$4',
+})
 
 export function App() {
-  return <h1 style={{ color: colors.green100 }}>teste</h1>
+  return <Button>teste</Button>
 }
