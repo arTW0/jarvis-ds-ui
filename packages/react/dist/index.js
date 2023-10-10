@@ -441,7 +441,7 @@ var CheckboxContainer = styled(Checkbox.Root, {
   all: "unset",
   width: "$6",
   height: "$6",
-  backgroundColor: "$red600",
+  backgroundColor: "$gray500",
   borderRadius: "$xs",
   lineHeight: 0,
   cursor: "pointer",
@@ -450,7 +450,7 @@ var CheckboxContainer = styled(Checkbox.Root, {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  border: "2px solid $red500",
+  border: "2px solid $gray500",
   '&[data-state="checked"]': {
     backgroundColor: "$red300"
   },

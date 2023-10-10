@@ -40,16 +40,16 @@ var colors = {
   red400: "#DC3545",
   red500: "#DC3545B3",
   red600: "#9A2539",
-  gray200: "#F5F5F5",
-  gray300: "#E0E0E0",
-  gray400: "#AFAFAF",
-  gray500: "#958D9E",
-  gray600: "#3F3F3F",
-  gray700: "#222222",
-  gray800: "#27173E",
-  green100: "#007D00",
-  green200: "#28A745",
-  green300: "#309A259F"
+  gray100: "#F5F5F5",
+  gray200: "#E0E0E0",
+  gray300: "#AFAFAF",
+  gray400: "#958D9E",
+  gray500: "#3F3F3F",
+  gray600: "#222222",
+  gray700: "#27173E",
+  green100: "#28A745",
+  green200: "#309A259F",
+  green300: "#007D00"
 };
 
 // src/space.ts
