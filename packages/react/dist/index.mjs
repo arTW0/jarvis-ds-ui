@@ -379,7 +379,7 @@ var TextArea = styled("textarea", {
   minHeight: 80,
   "&:focus": {
     outline: 0,
-    borderColor: "$ignite300"
+    borderColor: "$red300"
   },
   "&:disabled": {
     opacity: 0.5,
@@ -400,7 +400,7 @@ var CheckboxContainer = styled(Checkbox.Root, {
   all: "unset",
   width: "$6",
   height: "$6",
-  backgroundColor: "$gray500",
+  backgroundColor: "$red600",
   borderRadius: "$xs",
   lineHeight: 0,
   cursor: "pointer",
@@ -409,7 +409,7 @@ var CheckboxContainer = styled(Checkbox.Root, {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  border: "2px solid $gray500",
+  border: "2px solid $red500",
   '&[data-state="checked"]': {
     backgroundColor: "$red300"
   },
