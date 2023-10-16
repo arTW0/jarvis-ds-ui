@@ -7,7 +7,14 @@ import ShoppingBasketRoundedIcon from '@mui/icons-material/ShoppingBasketRounded
 import AccountBalanceRoundedIcon from '@mui/icons-material/AccountBalanceRounded';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 
-export function MonthlyBills() {
+export interface MonthlyBillsProps {
+  categoryIcon: string;
+  price: number;
+  description: string;
+  pageToPay: string;
+}
+
+export function MonthlyBills({ categoryIcon, description, pageToPay, price }: MonthlyBillsProps) {
   return (
     <Bill>
       <div className="wrapper">

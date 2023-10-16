@@ -1,11 +1,11 @@
 import { styled } from '../../styles'
 
-export const DropDown = styled('div', {
+export const DropdownBox = styled('div', {
   position: 'relative',
   display: 'inline-block',
 })
 
-export const DropDownButton = styled('button', {
+export const DropdownButton = styled('button', {
   display: 'block',
   backgroundColor: '$gray200',
   color: '$white',
@@ -17,7 +17,7 @@ export const DropDownButton = styled('button', {
   border: 'none',
 })
 
-export const DropDownContent = styled('div', {
+export const DropdownContent = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   position: 'absolute',

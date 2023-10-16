@@ -1,6 +1,14 @@
+import { ComponentProps } from 'react';
 import { GoalContent, Goals, Item, Price, Progress } from './styles'
 
-export function SavingGoals() {
+export interface SavingGoalsProps extends ComponentProps<typeof Goals> {
+  goal: string;
+  category: string;
+  amount: number;
+  locked: number;
+}
+
+export function SavingGoals({ goal, category, amount, locked }: SavingGoalsProps) {
   const percentage = (locked * 100) / amount
 
   return (

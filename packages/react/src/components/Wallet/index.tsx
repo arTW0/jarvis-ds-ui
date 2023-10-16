@@ -1,7 +1,8 @@
 import ControlPointRoundedIcon from '@mui/icons-material/ControlPointRounded';
 import { Balance, BoxLeft, BoxRight, Wallet } from './styles'
+import { ComponentProps } from 'react';
 
-export interface WalletProps {
+export interface WalletProps extends ComponentProps<typeof Wallet> {
   totalBalance: number
   addFoundsLink: string
 }

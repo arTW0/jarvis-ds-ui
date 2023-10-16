@@ -59,15 +59,30 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 // src/index.tsx
 var src_exports = {};
 __export(src_exports, {
+  ActionSheet: () => ActionSheet,
   Avatar: () => Avatar2,
+  BottomMenu: () => BottomMenu,
   Box: () => Box,
   Button: () => Button,
+  Cards: () => Cards,
   Checkbox: () => Checkbox2,
+  ComponentsHeader: () => ComponentsHeader,
+  Dropdown: () => Dropdown2,
+  Footer: () => Footer,
+  HeaderComponent: () => HeaderComponent,
   Heading: () => Heading,
+  Loader: () => Loader,
+  Modal: () => Modal,
+  MonthlyBills: () => MonthlyBills,
   MultiStep: () => MultiStep,
+  SavingGoals: () => SavingGoals,
+  Stats: () => Stats,
+  StatsBox: () => StatsBox,
   Text: () => Text,
   TextArea: () => TextArea,
-  TextInput: () => TextInput
+  TextInput: () => TextInput,
+  Transactions: () => Transactions,
+  WalletComponent: () => WalletComponent
 });
 module.exports = __toCommonJS(src_exports);
 
@@ -421,7 +436,7 @@ var TextArea = styled("textarea", {
   border: "2px solid $gray900",
   fontFamily: "$default",
   fontSize: "$sm",
-  color: "$white",
+  color: "$gray500",
   fontWeight: "$regular",
   resize: "vertical",
   minHeight: 80,
@@ -482,7 +497,7 @@ var slideOut = keyframes({
   }
 });
 var CheckboxIndicator = styled(Checkbox.Indicator, {
-  color: "$white",
+  color: "$gray500",
   width: "$4",
   height: "$4",
   '&[data-state="checked"]': {
@@ -543,15 +558,1020 @@ function MultiStep({ size, currentStep = 1 }) {
   ] });
 }
 MultiStep.displayName = "MultiStep";
+
+// src/components/ActionSheet/index.tsx
+var import_react2 = require("react");
+
+// src/components/ActionSheet/styles.ts
+var ActionSheetContainer = styled("div", {});
+var ActionButton = styled("button", {
+  backgroundColor: "$red300",
+  color: "$white",
+  fontSize: "$sm",
+  width: "$32",
+  height: "$16",
+  borderRadius: "$sm",
+  padding: "$4",
+  cursor: "pointer",
+  fontWeight: "bold",
+  border: "none"
+});
+var ActiveAnimation = keyframes({
+  from: {
+    transform: "translatey(100%)",
+    opacity: 0
+  },
+  to: {
+    transform: "translatey(0%)"
+  }
+});
+var InactiveAnimation = keyframes({
+  from: {
+    transform: "translatey(0%)",
+    opacity: 1
+  },
+  to: {
+    transform: "translatey(100%)"
+  }
+});
+var ActionSheetContent = styled("div", {
+  position: "fixed",
+  left: "10%",
+  bottom: 20,
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  backgroundColor: "$gray300",
+  width: "25vw",
+  borderRadius: "$4",
+  zIndex: 1,
+  padding: "$2 $1",
+  animationFillMode: "forwards",
+  "a": {
+    color: "$black",
+    padding: "$3 $4",
+    textDecoration: "none",
+    display: "block"
+  },
+  "&.active": {
+    animation: `${ActiveAnimation} 0.5s`
+  },
+  "&.inactive": {
+    animation: `${InactiveAnimation} 0.5s`
+  }
+});
+var CancelButton = styled("button", {
+  color: "$red300",
+  fontWeight: "$bold",
+  width: "80%",
+  padding: "$2",
+  marginTop: "$2",
+  border: "none",
+  backgroundColor: "transparent"
+});
+
+// src/components/ActionSheet/index.tsx
+var import_jsx_runtime5 = require("react/jsx-runtime");
+function ActionSheet({ labelButton, children }) {
+  const [open, setOpen] = (0, import_react2.useState)(false);
+  const [isOnTheScreen, setIsOnTheScreen] = (0, import_react2.useState)(false);
+  const handleOnTheScreen = () => {
+    if (isOnTheScreen) {
+      setTimeout(() => {
+        setIsOnTheScreen(false);
+      }, 500);
+      return;
+    }
+    setIsOnTheScreen(true);
+  };
+  const handleActionSheetOpen = () => {
+    setOpen(!open);
+  };
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(ActionSheetContainer, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+      ActionButton,
+      {
+        onClick: () => {
+          handleActionSheetOpen();
+          handleOnTheScreen();
+        },
+        children: labelButton
+      }
+    ),
+    isOnTheScreen && /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(ActionSheetContent, { className: open ? "active" : "inactive", children: [
+      children,
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(CancelButton, { onClick: () => {
+        handleActionSheetOpen();
+        handleOnTheScreen();
+      }, children: "Cancel" })
+    ] })
+  ] });
+}
+ActionSheet.displayName = "ActionSheet";
+
+// src/components/BottomMenu/index.tsx
+var import_LeaderboardRounded = __toESM(require("@mui/icons-material/LeaderboardRounded"));
+var import_AccountBoxRounded = __toESM(require("@mui/icons-material/AccountBoxRounded"));
+var import_SyncAltRounded = __toESM(require("@mui/icons-material/SyncAltRounded"));
+var import_ArticleRounded = __toESM(require("@mui/icons-material/ArticleRounded"));
+var import_AppsRounded = __toESM(require("@mui/icons-material/AppsRounded"));
+var import_CreditCardRounded = __toESM(require("@mui/icons-material/CreditCardRounded"));
+var import_SettingsRounded = __toESM(require("@mui/icons-material/SettingsRounded"));
+var import_HelpOutlineRounded = __toESM(require("@mui/icons-material/HelpOutlineRounded"));
+var import_ReceiptLongRounded = __toESM(require("@mui/icons-material/ReceiptLongRounded"));
+var import_ExitToAppRounded = __toESM(require("@mui/icons-material/ExitToAppRounded"));
+var import_SavingsRounded = __toESM(require("@mui/icons-material/SavingsRounded"));
+
+// src/components/BottomMenu/styles.ts
+var BottomBox = styled("div", {
+  minHeight: "$12",
+  position: "fixed",
+  width: "100vw",
+  bottom: 0,
+  overflow: "hidden",
+  background: "$gray100",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  borderTop: "1px solid $red400",
+  padding: "0 $1",
+  zIndex: 9999
+});
+var Item = styled("a", {
+  fontSize: "$2",
+  letterSpacing: 0,
+  textAlign: "center",
+  width: "80%",
+  height: "$12",
+  lineHeight: "1.2em",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+  position: "relative",
+  textDecoration: "none",
+  color: "$gray700"
+});
+var ItemContent = styled("div", {
+  width: "100%",
+  padding: "0 $1",
+  textAlign: "center",
+  ".icon": {
+    display: "inline-flex",
+    margin: "1px auto $1 auto",
+    fontSize: "$6",
+    lineHeight: "$4",
+    color: "$gray700",
+    marginTop: "1px",
+    marginBottom: "$1"
+  }
+});
+
+// src/components/BottomMenu/index.tsx
+var import_jsx_runtime6 = require("react/jsx-runtime");
+function BottomMenu({ items }) {
+  const itemsArray = [...items];
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(BottomBox, { children: itemsArray.map((item, index) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Item, { href: item.link, className: "active", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(ItemContent, { children: [
+    item.icon === "overview" ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_LeaderboardRounded.default, { className: "icon" }) : item.icon === "profile" ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_AccountBoxRounded.default, { className: "icon" }) : item.icon === "transactions" ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_SyncAltRounded.default, { className: "icon" }) : item.icon === "settings" ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_SettingsRounded.default, { className: "icon" }) : item.icon === "cards" ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_CreditCardRounded.default, { className: "icon" }) : item.icon === "bills" ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_ReceiptLongRounded.default, { className: "icon" }) : item.icon === "apps" ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_AppsRounded.default, { className: "icon" }) : item.icon === "pages" ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_ArticleRounded.default, { className: "icon" }) : item.icon === "logout" ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_ExitToAppRounded.default, { className: "icon" }) : item.icon === "goals" ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_SavingsRounded.default, { className: "icon" }) : item.icon === "help" ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_HelpOutlineRounded.default, { className: "icon" }) : null,
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("strong", { children: item.label })
+  ] }, `${item}${index}`) })) });
+}
+
+// src/components/Cards/index.tsx
+var import_MoreHorizRounded = __toESM(require("@mui/icons-material/MoreHorizRounded"));
+var import_EditRounded = __toESM(require("@mui/icons-material/EditRounded"));
+var import_UpgradeRounded = __toESM(require("@mui/icons-material/UpgradeRounded"));
+var import_CreditCardOffRounded = __toESM(require("@mui/icons-material/CreditCardOffRounded"));
+var import_react3 = require("react");
+
+// src/components/Cards/styles.ts
+var CardBox = styled("section", {
+  padding: "0 $4"
+});
+var CardBlock = styled("div", {
+  height: "220px",
+  borderRadius: "10px",
+  background: "$red400",
+  boxShadow: "0 $px $xs 0 rgba(0, 0, 0, 0.09)",
+  color: "$gray500",
+  position: "relative"
+});
+var CardMain = styled("div", {
+  backgroundImage: "linear-gradient(-180deg, rgba(0, 0, 0, 0) 0 %, rgba(0, 0, 0, 0.23) 100 %)",
+  position: "absolute",
+  borderRadius: "10px",
+  left: 0,
+  right: 0,
+  bottom: 0,
+  top: 0,
+  display: "flex",
+  alignItems: "flex-end",
+  padding: "$5 $6"
+});
+var CardBalance = styled("div", {
+  position: "absolute",
+  left: "$6",
+  top: "$6",
+  ".title": {
+    fontWeight: "$bold",
+    color: "$white",
+    marginTop: "$2",
+    fontSize: "$6"
+  }
+});
+var CardLabel = styled("span", {
+  fontSize: "$3",
+  letterSpacing: "$px",
+  opacity: 0.5,
+  lineHeight: "$short",
+  marginBottom: "$sm",
+  textTransform: "uppercase",
+  display: "block",
+  fontWeight: "$medium"
+});
+var CardNumber = styled("div", {
+  fontSize: "$md",
+  letterSpacing: "$1",
+  fontWeight: 500
+});
+var CardBottom = styled("div", {
+  display: "flex",
+  alignItems: "center",
+  marginTop: "$5"
+});
+var CardExpiry = styled("div", {
+  display: "flex",
+  alignItems: "center",
+  marginTop: "$5"
+});
+var CardCVV = styled("div", {
+  fontWeight: "$medium",
+  fontSize: "$sm"
+});
+var CardButton = styled("div", {
+  position: "absolute",
+  right: "10px",
+  top: "10px"
+});
+var Dropdown = styled("div", {
+  position: "relative",
+  display: "inline-block"
+});
+var DropdownButton = styled("button", {
+  display: "block",
+  color: "$white",
+  padding: "$2",
+  fontSize: "$md",
+  cursor: "pointer",
+  fontWeight: "$bold",
+  backgroundColor: "transparent",
+  border: "none",
+  "&:hover, &:focus, &:active": {
+    backgroundColor: "$red600"
+  }
+});
+var DropdownContent = styled("button", {
+  position: "absolute",
+  left: "-10px",
+  minWidth: "$20",
+  marginLeft: "-70px",
+  background: "$red500",
+  borderRadius: "$4",
+  boxShadow: "0 $1 $8 rgba(0, 0, 0, 0.1)",
+  backdropFilter: "blur(5.9px)",
+  WebkitBackdropFilter: "blur(5.9px)",
+  border: "$px solid rgba(255, 255, 255, 0.3)",
+  "a": {
+    color: "$white",
+    padding: "$3 $4",
+    textDecoration: "none",
+    display: "block"
+  },
+  "div": {
+    display: "flex",
+    alignItems: "center",
+    ".icon": {
+      color: "$white",
+      marginLeft: "$2",
+      fontSize: "$2xl"
+    }
+  }
+});
+
+// src/components/Cards/index.tsx
+var import_jsx_runtime7 = require("react/jsx-runtime");
+function Cards({ balanceValue, cardNumber, cvv, expiryDate, linkDelete, linkEdit, linkUpdate }) {
+  const [open, setOpen] = (0, import_react3.useState)(false);
+  const handleDropdownOpen = () => {
+    setOpen(!open);
+  };
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(CardBox, { children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(CardBlock, { children: /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(CardMain, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(CardButton, { children: /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(Dropdown, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+        DropdownButton,
+        {
+          onClick: handleDropdownOpen,
+          children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+            import_MoreHorizRounded.default,
+            {
+              sx: { fontSize: "2rem" }
+            }
+          )
+        }
+      ),
+      open ? /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(DropdownContent, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_EditRounded.default, { className: "icon" }),
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("a", { href: linkEdit, children: "Editar" })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_UpgradeRounded.default, { className: "icon" }),
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("a", { href: linkUpdate, children: "Atualizar" })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_CreditCardOffRounded.default, { className: "icon" }),
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("a", { href: linkDelete, children: "Excluir" })
+        ] })
+      ] }) : null
+    ] }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(CardBalance, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(CardLabel, { className: "label", children: "BALANCE" }),
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("h1", { className: "title", children: balanceValue.toLocaleString("pt-BR", { style: "currency", currency: "BRL" }) })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(CardNumber, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(CardLabel, { className: "label", children: "Card Number" }),
+        `\u2022\u2022\u2022\u2022 ${cardNumber}`
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(CardBottom, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(CardExpiry, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(CardLabel, { className: "label", children: "Expiry Date" }),
+          expiryDate
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(CardCVV, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(CardLabel, { className: "label", children: "CVV" }),
+          cvv
+        ] })
+      ] })
+    ] })
+  ] }) }) });
+}
+
+// src/components/ComponentsHeader/styles.ts
+var ComponentHeader = styled("section", {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+  marginTop: "$8",
+  marginBottom: "$4",
+  padding: "0 $4",
+  ".title": {
+    margin: 0,
+    fontSize: "$xl",
+    letterSpacing: "-0.01em",
+    lineHeight: "$short",
+    paddingRight: "$4",
+    fontWeight: "$bold"
+  },
+  ".link": {
+    color: "$red500",
+    fontSize: "$sm",
+    fontWeight: "$500",
+    textDecoration: "none"
+  }
+});
+
+// src/components/ComponentsHeader/index.tsx
+var import_jsx_runtime8 = require("react/jsx-runtime");
+function ComponentsHeader({ title, pageLink, labelLink }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(ComponentHeader, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("h2", { className: "title", children: title }),
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("a", { href: pageLink, className: "link", children: labelLink })
+  ] });
+}
+
+// src/components/Dropdown/styles.ts
+var DropdownBox = styled("div", {
+  position: "relative",
+  display: "inline-block"
+});
+var DropdownButton2 = styled("button", {
+  display: "block",
+  backgroundColor: "$gray200",
+  color: "$white",
+  fontSize: "$xs",
+  borderRadius: "$4",
+  padding: "$4",
+  cursor: "pointer",
+  fontWeight: "$bold",
+  border: "none"
+});
+var DropdownContent2 = styled("div", {
+  display: "flex",
+  flexDirection: "column",
+  position: "absolute",
+  textAlign: "center",
+  backgroundColor: "$gray200",
+  minWidth: "80px",
+  borderRadius: "$4",
+  padding: "$1 $2",
+  zIndex: 1,
+  boxShadow: "0px $2 $4 0px rgba(0,0,0,0.2)",
+  "a": {
+    display: "block",
+    color: "$black",
+    padding: "$3 $4",
+    textDecoration: "none"
+  }
+});
+
+// src/components/Dropdown/index.tsx
+var import_react4 = require("react");
+var import_jsx_runtime9 = require("react/jsx-runtime");
+function Dropdown2({ options, label }) {
+  const [open, setOpen] = (0, import_react4.useState)(false);
+  const handleDropdownOpen = () => {
+    setOpen(!open);
+  };
+  const optionsArray = [...options];
+  return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(DropdownBox, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+      DropdownButton2,
+      {
+        onClick: handleDropdownOpen,
+        children: label
+      }
+    ),
+    open ? /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(DropdownContent2, { children: optionsArray.map((item, index) => /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+      "a",
+      {
+        href: "#",
+        children: item.option
+      },
+      `${item}${index}`
+    )) }) : null
+  ] });
+}
+
+// src/components/Footer/styles.ts
+var AppFooter = styled("div", {
+  position: "fixed",
+  left: 0,
+  bottom: 0,
+  width: "100%",
+  borderTop: "1px solid $gray300",
+  color: "$white",
+  padding: "$4",
+  fontSize: "$xs",
+  textAlign: "center",
+  lineHeight: "base",
+  background: "$red400",
+  marginTop: "$6"
+});
+var FooterTitle = styled("div", {
+  fontWeight: 500,
+  color: "$gray500",
+  marginBottomm: "$2"
+});
+
+// src/components/Footer/index.tsx
+var import_jsx_runtime10 = require("react/jsx-runtime");
+function Footer() {
+  const year = (/* @__PURE__ */ new Date()).getFullYear();
+  return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(AppFooter, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(FooterTitle, { children: [
+      "\xA9 ",
+      year,
+      " CREDFRANCO \u2013 Solu\xE7\xF5es Financeiras."
+    ] }),
+    "Todos os direitos reservados."
+  ] });
+}
+
+// src/components/Header/index.tsx
+var import_MenuRounded = __toESM(require("@mui/icons-material/MenuRounded"));
+var import_NotificationsNoneRounded = __toESM(require("@mui/icons-material/NotificationsNoneRounded"));
+
+// src/components/Header/styles.ts
+var Header = styled("div", {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-around",
+  position: "relative",
+  height: "$14",
+  width: "100vw",
+  background: "$red300"
+});
+var MenuIcon = styled("button", {
+  fontSize: "$4xl",
+  color: "$white",
+  backgroundColor: "transparent",
+  border: "none"
+});
+var BoxLogo = styled("div", {
+  padding: "0 $3"
+});
+var BoxLeft = styled("div", {
+  height: "$14",
+  display: "flex",
+  alignItems: "center",
+  position: "relative"
+});
+
+// src/components/Modal/styles.ts
+var ModalContainer = styled("div", {
+  position: "absolute",
+  top: 0,
+  left: "-2.7rem",
+  zIndex: 10,
+  transitionProperty: "all",
+  boxShadow: "50px 50px 50px 500px rgba(0, 0, 0, 0.5)"
+});
+var ModalContent = styled("div", {
+  width: "$40",
+  height: "100vh",
+  backgroundColor: "$red400",
+  padding: "$3",
+  overflow: "y",
+  ".border-top": {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    margin: "$4 0",
+    padding: "0 $4"
+  }
+});
+var CloseButton = styled("button", {
+  border: "none",
+  backgroundColor: "transparent",
+  color: "$white",
+  fontSize: "$5"
+});
+
+// src/components/Modal/index.tsx
+var import_CloseRounded = __toESM(require("@mui/icons-material/CloseRounded"));
+var import_AccountCircleRounded = __toESM(require("@mui/icons-material/AccountCircleRounded"));
+var import_jsx_runtime11 = require("react/jsx-runtime");
+function Modal({ children, onClose, show }) {
+  return onClose ? /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+    ModalContainer,
+    {
+      style: {
+        transform: show ? "translateX(0%)" : "translateX(-290%)"
+      },
+      children: /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(ModalContent, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "border-top", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+            import_AccountCircleRounded.default,
+            {
+              sx: {
+                color: "white",
+                fontSize: "2.5rem"
+              }
+            }
+          ) }),
+          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+            CloseButton,
+            {
+              onClick: () => {
+                onClose(false);
+              },
+              children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+                import_CloseRounded.default,
+                {
+                  sx: {
+                    fontSize: "2rem"
+                  }
+                }
+              )
+            }
+          )
+        ] }),
+        children
+      ] })
+    }
+  ) : null;
+}
+
+// src/components/Header/index.tsx
+var import_react5 = require("react");
+var import_jsx_runtime12 = require("react/jsx-runtime");
+function HeaderComponent({ children, activeModal, activeNotifications, notificationLink }) {
+  const [modalIsOpen, setModalIsOpen] = (0, import_react5.useState)(false);
+  return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(Header, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(BoxLeft, { children: [
+      activeModal === "on" ? /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(MenuIcon, { onClick: () => {
+        setModalIsOpen;
+      }, children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_MenuRounded.default, {}) }) : /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", {}),
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+        Modal,
+        {
+          show: () => {
+            modalIsOpen;
+          },
+          onClose: () => {
+            setModalIsOpen;
+          },
+          children
+        }
+      )
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(BoxLogo, { children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+      "img",
+      {
+        src: "/",
+        width: 160,
+        height: 100,
+        alt: "logo"
+      }
+    ) }),
+    activeNotifications === "on" ? /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+      "a",
+      {
+        href: notificationLink,
+        className: "box-right",
+        children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_NotificationsNoneRounded.default, { sx: { color: "white" } })
+      }
+    ) : /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", {})
+  ] });
+}
+
+// src/components/Loader/styles.ts
+var LoadingAnimation = keyframes({
+  from: {
+    transform: "rotate(0deg)"
+  },
+  to: {
+    transform: "rotate(360deg)"
+  }
+});
+var LoadingWrapper = styled("div", {
+  position: "fixed",
+  width: "100%",
+  height: "100%",
+  left: 0,
+  top: 0,
+  zIndex: 99999,
+  background: "$red400",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  ".loading_icon": {
+    animation: `${LoadingAnimation} 0.8s linear infinite`
+  }
+});
+
+// src/components/Loader/index.tsx
+var import_jsx_runtime13 = require("react/jsx-runtime");
+function Loader() {
+  return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(LoadingWrapper, { children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
+    "img",
+    {
+      src: "../../assets/logo.png",
+      width: 42,
+      height: 42,
+      alt: "logo",
+      className: "loading_icon"
+    }
+  ) });
+}
+
+// src/components/MonthlyGoals/styles.ts
+var Bill = styled("div", {
+  background: "$red600",
+  boxShadow: "0 1px 3px 0 rgba(0, 0, 0, 0.09)",
+  borderRadius: "$md",
+  padding: "$5 $6",
+  textAlign: "center",
+  color: "$white",
+  marginLeft: "$4",
+  width: "25%",
+  ".wrapper": {
+    textAlign: "center",
+    marginBottom: "$4"
+  },
+  ".price": {
+    fontSize: "$5",
+    fontWeight: 700,
+    color: "$gray100",
+    letterSpacing: "-0.02rem",
+    lineHeight: "$shorter",
+    marginBottom: "$3"
+  },
+  ".btn": {
+    height: "$9",
+    padding: "$1 $4",
+    fontSize: "$xs",
+    lineHeight: "$shorter",
+    fontWeight: 500,
+    boxShadow: "none !important",
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    transition: "0.2s all",
+    textDecoration: "none !important",
+    borderRadius: "$md",
+    borderWidth: "$px",
+    background: "$red100 !important",
+    borderColor: "$red300 !important",
+    color: "$white !important",
+    width: "100%"
+  },
+  "p": {
+    fontSize: "$xxs",
+    lineHeight: "$short",
+    height: "$9",
+    margin: "0 0 $3 0"
+  }
+});
+var IconBox = styled("div", {
+  width: "$12",
+  height: "$12",
+  background: "$red400",
+  borderRadius: "$md",
+  lineHeight: "$short",
+  color: "$white",
+  fontSize: "$6",
+  display: "inline-flex",
+  alignItems: "center",
+  justifyContent: "center"
+});
+
+// src/components/MonthlyGoals/index.tsx
+var import_PixRounded = __toESM(require("@mui/icons-material/PixRounded"));
+var import_CreditCardRounded2 = __toESM(require("@mui/icons-material/CreditCardRounded"));
+var import_AttachMoneyRounded = __toESM(require("@mui/icons-material/AttachMoneyRounded"));
+var import_ShoppingBasketRounded = __toESM(require("@mui/icons-material/ShoppingBasketRounded"));
+var import_AccountBalanceRounded = __toESM(require("@mui/icons-material/AccountBalanceRounded"));
+var import_HomeRounded = __toESM(require("@mui/icons-material/HomeRounded"));
+var import_jsx_runtime14 = require("react/jsx-runtime");
+function MonthlyBills({ categoryIcon, description, pageToPay, price }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(Bill, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { className: "wrapper", children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(IconBox, { children: categoryIcon === "pix" ? /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(import_PixRounded.default, {}) : categoryIcon === "credit-card" ? /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(import_CreditCardRounded2.default, {}) : categoryIcon === "transfer" ? /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(import_AttachMoneyRounded.default, {}) : categoryIcon === "shopping" ? /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(import_ShoppingBasketRounded.default, {}) : categoryIcon === "loan" ? /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(import_AccountBalanceRounded.default, {}) : categoryIcon === "rent" ? /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(import_HomeRounded.default, {}) : null }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { className: "price", children: price.toLocaleString("pt-BR", { style: "currency", currency: "BRL" }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { children: description }),
+    /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("a", { href: pageToPay, className: "btn", children: "PAY NOW" })
+  ] });
+}
+
+// src/components/SavingGoals/styles.ts
+var Goals = styled("div", {
+  margin: "$4"
+});
+var Item2 = styled("div", {
+  background: "$white",
+  boxShadow: "0 1px 3px 0 rgba(0, 0, 0, 0.09)",
+  borderRadius: "$md",
+  padding: "$5 $6",
+  marginBottom: "$3"
+});
+var GoalContent = styled("div", {
+  display: "flex",
+  alignItems: "flex-start",
+  justifyContent: "space-between",
+  marginBottom: "$1",
+  "h4": {
+    margin: 0,
+    fontSize: "$md",
+    fontWeight: "$medium",
+    color: "$black"
+  },
+  "p": {
+    fontSize: "$xs",
+    color: "$gray500"
+  }
+});
+var Price = styled("div", {
+  fontWeight: "$bold",
+  color: "$black"
+});
+var Progress = styled("div", {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+  fontSize: "$xs",
+  fontWeight: "$medium",
+  letterSpacing: 0,
+  width: "100%",
+  "progress": {
+    borderRadius: "$2",
+    width: "80%",
+    height: "$6",
+    boxShadow: "1px 1px 4px rgba( 0, 0, 0, 0.2)"
+  },
+  "progress::-webkit-progress-bar": {
+    backgroundColor: "emptyProgressbarColor",
+    borderRadius: "$md"
+  },
+  "progress::-webkit-progress-value": {
+    backgroundColor: "fullProgressbarColor",
+    borderRadius: "$sm",
+    boxShadow: "0 0 0 1px rgba(0, 0, 0, 0.05)"
+  }
+});
+
+// src/components/SavingGoals/index.tsx
+var import_jsx_runtime15 = require("react/jsx-runtime");
+function SavingGoals({ goal, category, amount, locked }) {
+  const percentage = locked * 100 / amount;
+  return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Goals, { children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(Item2, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(GoalContent, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("h4", { children: goal }),
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("p", { children: category })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Price, { children: amount.toLocaleString("pt-BR", { style: "currency", currency: "BRL" }) })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(Progress, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
+        "progress",
+        {
+          max: "100",
+          value: percentage
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("p", { children: `${percentage.toFixed(0)} %` })
+    ] })
+  ] }) });
+}
+
+// src/components/Stats/styles.ts
+var StatBox = styled("div", {
+  background: "$white",
+  boxShadow: "0 1px 3px 0 rgba(0, 0, 0, 0.09)",
+  borderRadius: "$md",
+  padding: "$5 $6",
+  ".title": {
+    fontSize: "$xs",
+    color: "$black",
+    fontWeight: "$medium",
+    display: "block",
+    marginBottom: "$2",
+    lineHeight: "$short"
+  },
+  ".value": {
+    fontSize: "$xl",
+    fontWeight: "$bold",
+    letterSpacing: "-0.02em",
+    lineHeight: "$shorter"
+  },
+  ".text-success": {
+    color: "$green100"
+  },
+  ".text-danger": {
+    color: "$red400"
+  }
+});
+
+// src/components/Stats/index.tsx
+var import_jsx_runtime16 = require("react/jsx-runtime");
+function Stats({ title, value, typeValue }) {
+  const color = typeValue === "positive" ? "text-success" : typeValue === "negative" ? "text-danger" : null;
+  return /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(StatBox, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "title", children: title }),
+    /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: `value ${color}`, children: value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" }) })
+  ] });
+}
+
+// src/components/StatsBlock.tsx
+var StatsBox = styled("section", {
+  display: "grid",
+  gridTemplateColumns: "1fr 1fr",
+  gridGap: "$4",
+  padding: "0 $4",
+  marginTop: "$4"
+});
+StatsBox.displayName = "StatsBox";
+
+// src/components/Transactions/styles.ts
+var TransactionsBox = styled("section", {
+  padding: "0 $4"
+});
+var Transaction = styled("a", {
+  background: "$white",
+  boxShadow: "0 $px $1 0 rgba(0, 0, 0, 0.09)",
+  borderRadius: "$md",
+  padding: "$5 $6",
+  marginBottom: "$2",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+  textDecoration: "none",
+  ".price": {
+    fontWeight: "$bold",
+    letterSpacing: "-0.03em",
+    color: "$green300"
+  },
+  ".text-danger": {
+    color: "$red400"
+  }
+});
+var BoxRight = styled("div", {
+  paddingLeft: "$2"
+});
+var Details = styled("div", {
+  color: "$gray500"
+});
+
+// src/components/Transactions/index.tsx
+var import_jsx_runtime17 = require("react/jsx-runtime");
+function Transactions({ title, amount, category, key, type }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(TransactionsBox, { children: /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(Transaction, { href: "#", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(Details, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("strong", { children: title }),
+      /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("p", { children: category })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(BoxRight, { children: /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
+      "div",
+      {
+        className: type === "deposit" ? "price" : "price text-danger",
+        children: type === "deposit" ? amount.toLocaleString("pt-BR", { style: "currency", currency: "BRL" }) : `- ${amount.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}`
+      }
+    ) })
+  ] }) }, key);
+}
+
+// src/components/Wallet/index.tsx
+var import_ControlPointRounded = __toESM(require("@mui/icons-material/ControlPointRounded"));
+
+// src/components/Wallet/styles.ts
+var Wallet = styled("div", {
+  padding: "0 $4",
+  paddingTop: "$2"
+});
+var Balance = styled("div", {
+  display: "flex",
+  height: "$8",
+  width: "$16",
+  alignItems: "center",
+  justifyContent: "space-between",
+  marginBottom: "$2",
+  background: "$white",
+  boxShadow: "0 1px 3px 0 rgba(0, 0, 0, 0.09)",
+  borderRadius: "$md",
+  padding: "$5 $6",
+  ".tittle": {
+    fontWeight: "$medium",
+    display: "block",
+    marginBottom: "$2"
+  },
+  ".total": {
+    fontWeight: "$bold",
+    letterSpacing: "-0.01em",
+    lineHeight: "$tall",
+    fontSize: "$xl"
+  }
+});
+var BoxLeft2 = styled("div", {
+  paddingRight: "$2"
+});
+var BoxRight2 = styled("div", {
+  padding: 0
+});
+
+// src/components/Wallet/index.tsx
+var import_jsx_runtime18 = require("react/jsx-runtime");
+function WalletComponent({ totalBalance, addFoundsLink }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(Wallet, { children: /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)(Balance, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)(BoxLeft2, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("span", { className: "title", children: "Total Balance" }),
+      /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("h1", { className: "total", children: totalBalance ? totalBalance.toLocaleString("pt-BR", { style: "currency", currency: "BRL" }) : null })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(BoxRight2, { children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("a", { href: addFoundsLink, children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+      import_ControlPointRounded.default,
+      {
+        sx: {
+          color: "black",
+          fontSize: "2.5rem",
+          marginTop: "1rem"
+        }
+      }
+    ) }) })
+  ] }) });
+}
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
+  ActionSheet,
   Avatar,
+  BottomMenu,
   Box,
   Button,
+  Cards,
   Checkbox,
+  ComponentsHeader,
+  Dropdown,
+  Footer,
+  HeaderComponent,
   Heading,
+  Loader,
+  Modal,
+  MonthlyBills,
   MultiStep,
+  SavingGoals,
+  Stats,
+  StatsBox,
   Text,
   TextArea,
-  TextInput
+  TextInput,
+  Transactions,
+  WalletComponent
 });

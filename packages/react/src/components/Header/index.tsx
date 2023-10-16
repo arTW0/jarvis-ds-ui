@@ -1,43 +1,48 @@
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import NotificationsNoneRoundedIcon from '@mui/icons-material/NotificationsNoneRounded';
 
+import { BoxLeft, BoxLogo, Header, MenuIcon } from './styles'
+
+import { Modal } from "../Modal";
+
 import { useState } from "react";
 
-import { BoxLeft, BoxLogo, Header, MeunuIcon } from './styles'
+export interface HeaderProps {
+  children?: React.ReactNode;
+  activeModal?: string;
+  activeNotifications?: string;
+  notificationLink?: string;
+}
 
-export function HeaderComponent() {
+export function HeaderComponent({ children, activeModal, activeNotifications, notificationLink }: HeaderProps) {
+  const [modalIsOpen, setModalIsOpen] = useState(false)
+
   return (
     <Header>
-      <div className="box-left">
+      <BoxLeft>
         {activeModal === "on" ?
-          <button className="menu-icon" onClick={setModalIsOpen}>
+          <MenuIcon onClick={() => { setModalIsOpen }}>
             <MenuRoundedIcon />
-          </button>
+          </MenuIcon>
           : <div></div>
         }
 
         <Modal
-          show={modalIsOpen}
-          onClose={setModalIsOpen}
+          show={() => { modalIsOpen }}
+          onClose={() => { setModalIsOpen }}
           children={children}
-          width={"75vw"}
-          height={"100vh"}
-          backgroundColor={"#AE2736"}
-        >
-          {children}
-        </Modal>
+        />
 
-      </div>
+      </BoxLeft>
 
-      <div className="box-logo">
+      <BoxLogo>
         <img
           src="/"
           width={160}
           height={100}
           alt="logo"
-          priority={true}
         />
-      </div>
+      </BoxLogo>
 
       {activeNotifications === "on" ?
         <a

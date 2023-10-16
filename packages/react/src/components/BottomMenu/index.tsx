@@ -14,11 +14,14 @@ import { ComponentProps } from 'react'
 import { BottomBox, Item, ItemContent } from './styles'
 
 export interface BottomMenuProps extends ComponentProps<typeof BottomBox> {
-  prefix?: string
+  items: {
+    icon: string
+    label: string
+    link: string
+  }[]
 }
 
-
-export function BottomMenu({ }: BottomMenuProps) {
+export function BottomMenu({ items }: BottomMenuProps) {
   const itemsArray = [...items]
   return (
     <BottomBox>

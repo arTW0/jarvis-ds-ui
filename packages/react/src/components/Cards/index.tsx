@@ -22,10 +22,16 @@ import {
 } from './styles'
 
 export interface CardsProps extends ComponentProps<typeof CardBox> {
-  prefix?: string
+  balanceValue: number;
+  cardNumber: string;
+  expiryDate: string;
+  cvv: string;
+  linkEdit: string;
+  linkUpdate: string;
+  linkDelete: string;
 }
 
-export function Cards({ }: CardsProps) {
+export function Cards({ balanceValue, cardNumber, cvv, expiryDate, linkDelete, linkEdit, linkUpdate }: CardsProps) {
   const [open, setOpen] = useState(false);
 
   const handleDropdownOpen = () => {
@@ -39,7 +45,6 @@ export function Cards({ }: CardsProps) {
           <CardButton>
             <Dropdown>
               <DropdownButton
-                checked={open}
                 onClick={handleDropdownOpen}
               >
                 <MoreHorizRoundedIcon

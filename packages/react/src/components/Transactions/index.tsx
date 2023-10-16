@@ -1,11 +1,15 @@
 import { ComponentProps } from 'react'
 import { BoxRight, Details, Transaction, TransactionsBox } from './styles'
 
-export interface TextInputProps extends ComponentProps<typeof TransactionsBox> {
-  prefix?: string
+export interface TransactionsProps extends ComponentProps<typeof TransactionsBox> {
+  title: string;
+  category: string;
+  amount: number;
+  type: string;
+  key: string;
 }
 
-export function Transactions({ prefix, ...props }: TextInputProps) {
+export function Transactions({ title, amount, category, key, type }: TransactionsProps) {
   return (
     <TransactionsBox key={key}>
       <Transaction href="#">

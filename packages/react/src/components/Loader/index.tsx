@@ -4,11 +4,10 @@ export function Loader() {
   return (
     <LoadingWrapper>
       <img
-        src={imageLogo}
+        src={'../../assets/logo.png'}
         width={42}
         height={42}
         alt="logo"
-        priority={false}
         className="loading_icon"
       />
     </LoadingWrapper>

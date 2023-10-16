@@ -10,7 +10,7 @@ export const Header = styled('div', {
   background: '$red300',
 })
 
-export const MeunuIcon = styled('button', {
+export const MenuIcon = styled('button', {
   fontSize: '$4xl',
   color: '$white',
   backgroundColor: 'transparent',

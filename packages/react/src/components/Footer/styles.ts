@@ -18,6 +18,6 @@ export const AppFooter = styled('div', {
 
 export const FooterTitle = styled('div', {
   fontWeight: 500,
-  color: '$white',
+  color: '$gray500',
   marginBottomm: '$2'
 })

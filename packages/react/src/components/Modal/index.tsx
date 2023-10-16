@@ -3,7 +3,13 @@ import { CloseButton, ModalContainer, ModalContent } from './styles'
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 
-export function Modal() {
+export interface ModalProps {
+  children?: React.ReactNode;
+  show?: React.Dispatch<React.SetStateAction<boolean>>;
+  onClose?: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export function Modal({ children, onClose, show }: ModalProps) {
   return (
     onClose ?
       <ModalContainer

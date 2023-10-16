@@ -24,10 +24,13 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.11",
+    "@mui/material": "^5.14.13",
     "@radix-ui/react-avatar": "^1.0.4",
     "@radix-ui/react-checkbox": "^1.0.4",
     "@stitches/react": "^1.2.8",
-    "phosphor-react": "^1.4.1",
-    "@mui/icons-material": "^5.14.11"
+    "phosphor-react": "^1.4.1"
   }
 }

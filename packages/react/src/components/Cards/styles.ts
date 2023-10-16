@@ -9,7 +9,7 @@ export const CardBlock = styled('div', {
   borderRadius: '10px',
   background: '$red400',
   boxShadow: '0 $px $xs 0 rgba(0, 0, 0, 0.09)',
-  color: '$white',
+  color: '$gray500',
   position: 'relative',
 })
 

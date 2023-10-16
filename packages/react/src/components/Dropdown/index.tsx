@@ -1,22 +1,25 @@
-import { DropDown, DropDownButton, DropDownContent } from './styles'
+import { DropdownBox, DropdownButton, DropdownContent } from './styles'
 import { useState } from "react";
 
-export interface DropdownProps
-  extends DropdownProps<typeof Dropdown> { }
+export interface DropdownProps {
+  options: {
+    option: string
+  }[]
+  label: string
+}
 
-export function Dropdown(props: DropdownProps) {
+export function Dropdown({ options, label }: DropdownProps) {
   const [open, setOpen] = useState(false);
 
   const handleDropdownOpen = () => {
     setOpen(!open)
   }
 
-  const optionsArray = [...option]
+  const optionsArray = [...options]
 
   return (
-    <Dropdown>
+    <DropdownBox>
       <DropdownButton
-        checked={open}
         onClick={handleDropdownOpen}
       >
         {label}
@@ -34,9 +37,8 @@ export function Dropdown(props: DropdownProps) {
           ))}
 
         </DropdownContent>
-
         : null}
 
-    </Dropdown>
+    </DropdownBox>
   )
 }  

@@ -6,9 +6,9 @@ export const ActionButton = styled('button', {
   backgroundColor: '$red300',
   color: '$white',
   fontSize: '$sm',
-  width: '$4',
-  height: '$8',
-  borderRadius: '$2',
+  width: '$32',
+  height: '$16',
+  borderRadius: '$sm',
   padding: '$4',
   cursor: 'pointer',
   fontWeight: 'bold',
@@ -17,7 +17,7 @@ export const ActionButton = styled('button', {
 
 const ActiveAnimation = keyframes({
   from: {
-    transform: 'translatey(100 %)',
+    transform: 'translatey(100%)',
     opacity: 0,
   },
   to: {
@@ -31,24 +31,30 @@ const InactiveAnimation = keyframes({
     opacity: 1,
   },
   to: {
-    transform: 'translatey(100 %)',
+    transform: 'translatey(100%)',
   }
 })
 
 export const ActionSheetContent = styled('div', {
   position: 'fixed',
   left: '10%',
-  bottom: 0,
+  bottom: 20,
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  backgroundColor: '$red300',
-  width: '80vw',
-  height: '40vh',
+  backgroundColor: '$gray300',
+  width: '25vw',
   borderRadius: '$4',
   zIndex: 1,
   padding: '$2 $1',
   animationFillMode: 'forwards',
+
+  'a': {
+    color: '$black',
+    padding: '$3 $4',
+    textDecoration: 'none',
+    display: 'block',
+  },
 
   '&.active': {
     animation: `${ActiveAnimation} 0.5s`,
@@ -59,9 +65,12 @@ export const ActionSheetContent = styled('div', {
   },
 })
 
-export const ActionSheetLabel = styled('a', {
-  color: '$black',
-  padding: '$3 $4',
-  textDecoration: 'none',
-  display: 'block',
+export const CancelButton = styled('button', {
+  color: '$red300',
+  fontWeight: '$bold',
+  width: '80%',
+  padding: '$2',
+  marginTop: '$2',
+  border: 'none',
+  backgroundColor: 'transparent',
 })

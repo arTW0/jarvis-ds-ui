@@ -1,40 +1,38 @@
-import { ComponentProps, ElementType, useState } from 'react'
-import { Button } from '../Button'
+import { useState } from 'react'
 import {
   ActionButton,
   ActionSheetContainer,
   ActionSheetContent,
-  ActionSheetLabel
+  CancelButton
 } from './styles'
 
-export interface ActionSheetProps
-  extends ComponentProps<typeof Button> {
-  as?: ElementType
+export interface ActionSheetProps {
+  labelButton: string
+  children: React.ReactNode
 }
 
-const [open, setOpen] = useState(false);
-const [isOnTheScreen, setIsOnTheScreen] = useState(false);
+export function ActionSheet({ labelButton, children }: ActionSheetProps) {
+  const [open, setOpen] = useState(false);
+  const [isOnTheScreen, setIsOnTheScreen] = useState(false);
 
-const handleOnTheScreen = () => {
-  if (isOnTheScreen) {
-    setTimeout(() => {
-      setIsOnTheScreen(false)
-    }, 500)
-    return
+  const handleOnTheScreen = () => {
+    if (isOnTheScreen) {
+      setTimeout(() => {
+        setIsOnTheScreen(false)
+      }, 500)
+      return
+    }
+
+    setIsOnTheScreen(true)
   }
 
-  setIsOnTheScreen(true)
-}
+  const handleActionSheetOpen = () => {
+    setOpen(!open)
+  }
 
-const handleActionSheetOpen = () => {
-  setOpen(!open)
-}
-
-export function ActionSheet(props: ActionSheetProps) {
   return (
     <ActionSheetContainer>
       <ActionButton
-        checked={open}
         onClick={() => {
           handleActionSheetOpen()
           handleOnTheScreen()
@@ -43,9 +41,8 @@ export function ActionSheet(props: ActionSheetProps) {
         {labelButton}
       </ActionButton>
       {isOnTheScreen && (
-        <ActionSheetContent isOpened={open} className={open ? "active" : "inactive"}>
+        <ActionSheetContent className={open ? "active" : "inactive"}>
           {children}
-
           <CancelButton onClick={() => {
             handleActionSheetOpen()
             handleOnTheScreen()
@@ -57,3 +54,5 @@ export function ActionSheet(props: ActionSheetProps) {
     </ActionSheetContainer>
   )
 }
+
+ActionSheet.displayName = 'ActionSheet'

@@ -9,7 +9,7 @@ export const StatsBox = styled('section', {
   marginTop: '$4',
 })
 
-export interface BoxProps extends ComponentProps<typeof StatsBox> {
+export interface StatsBoxProps extends ComponentProps<typeof StatsBox> {
   as?: ElementType
 }
 
