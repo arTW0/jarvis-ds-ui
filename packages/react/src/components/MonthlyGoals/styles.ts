@@ -13,7 +13,7 @@ export const Bill = styled('div', {
   '.wrapper': {
     textAlign: 'center',
     marginBottom: '$4',
-  }
+  },
 
   '.price': {
     fontSize: '$5',
@@ -22,38 +22,47 @@ export const Bill = styled('div', {
     letterSpacing: '-0.02rem',
     lineHeight: '$shorter',
     marginBottom: '$3',
+  },
+
+  '.btn': {
+    height: '$9',
+    padding: '$1 $4',
+    fontSize: '$xs',
+    lineHeight: '$shorter',
+    fontWeight: 500,
+    boxShadow: 'none !important',
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    transition: '0.2s all',
+    textDecoration: 'none !important',
+    borderRadius: '$md',
+    borderWidth: '$px',
+
+    background: '$red100 !important',
+    borderColor: '$red300 !important',
+    color: '$white !important',
+
+    width: '100%',
+  },
+
+  'p': {
+    fontSize: '$xxs',
+    lineHeight: '$short',
+    height: '$9',
+    margin: '0 0 $3 0',
   }
+})
 
-    .btn {
-      height: 36px,
-      padding: 3px 18px,
-      font- size: 13px,
-  line - height: 1.2em,
-  font - weight: 500,
-  box - shadow: none!important,
-  display: inline - flex,
-  align - items: center,
-  justify - content: center,
-  transition: 0.2s all,
-  text - decoration: none!important,
-  border - radius: 10px,
-  border - width: 2px,
-
-  background: ${ buttonColor }!important,
-  border - color: ${ buttonColor }!important,
-  color: ${ buttonLabelColor }!important,
-
-  height: 28px,
-  padding: 0px 6px,
-  font - size: 12px,
-
-  width: 100 %,
-  }
-
-  p {
-  font - size: 11px,
-    line - height: 1.4em,
-      height: 36px,
-        margin: 0 0 10px 0,
-  }
+export const IconBox = styled('div', {
+  width: '$12',
+  height: '$12',
+  background: '$red400',
+  borderRadius: '$md',
+  lineHeight: '$short',
+  color: '$white',
+  fontSize: '$6',
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
 })
