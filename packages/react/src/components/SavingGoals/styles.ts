@@ -54,7 +54,6 @@ export const ProgressBar = styled('progress', {
   height: '$6',
   boxShadow: '1px 1px 4px rgba( 0, 0, 0, 0.2)',
 
-
   '&::-webkit-progress-bar': {
     backgroundColor: '$red100',
     borderRadius: '$md',
@@ -62,8 +61,7 @@ export const ProgressBar = styled('progress', {
 
   '&::-webkit-progress-value': {
     backgroundColor: '$red500',
-    borderRadius: '$sm',
+    borderRadius: '$md',
     boxShadow: '0 0 0 1px rgba(0, 0, 0, 0.05)',
   }
-
 })

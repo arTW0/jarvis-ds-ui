@@ -75,4 +75,5 @@ export const CancelButton = styled('button', {
   border: 'none',
   backgroundColor: 'transparent',
   fontFamily: '$default',
+  fontSize: '$md',
 })

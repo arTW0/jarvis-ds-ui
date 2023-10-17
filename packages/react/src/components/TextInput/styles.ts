@@ -1,11 +1,11 @@
 import { styled } from '../../styles'
 
 export const TextInputContainer = styled('div', {
-  backgroundColor: '$gray700',
+  backgroundColor: '$gray500',
   padding: '$3 $4',
   borderRadius: '$sm',
   boxSizing: 'border-box',
-  border: '2px solid $gray700',
+  border: '2px solid $red600',
   display: 'flex',
   alignItems: 'baseline',
 

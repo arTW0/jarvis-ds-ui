@@ -7,15 +7,12 @@ export default {
   args: {
     labelButton: 'Open Action Sheet',
     children: (
-      <Box
-        as="label"
-        css={{ display: 'flex', flexDirection: 'column', gap: '$2', border: 'none' }}
-      >
-        <Box>Option 1</Box>
-        <Box>Option 2</Box>
-        <Box>Option 3</Box>
-        <Box>Option 4</Box>
-      </Box>
+      <>
+        <Box css={{ border: 'none' }}>Option 1</Box>
+        <Box css={{ border: 'none' }}>Option 2</Box>
+        <Box css={{ border: 'none' }}>Option 3</Box>
+        <Box css={{ border: 'none' }}>Option 4</Box>
+      </>
     ),
   },
   decorators: [
