@@ -7,6 +7,8 @@ export const ComponentHeader = styled('section', {
   marginTop: '$8',
   marginBottom: '$4',
   padding: '0 $4',
+  fontFamily: '$default',
+  fontWeight: '$medium',
 
   '.title': {
     margin: 0,
@@ -15,10 +17,11 @@ export const ComponentHeader = styled('section', {
     lineHeight: '$short',
     paddingRight: '$4',
     fontWeight: '$bold',
+    color: '$gray100'
   },
 
   '.link': {
-    color: '$red500',
+    color: '$red300',
     fontSize: '$sm',
     fontWeight: '$500',
     textDecoration: 'none',

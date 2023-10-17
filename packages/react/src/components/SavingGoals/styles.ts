@@ -2,10 +2,11 @@ import { styled } from "../../styles"
 
 export const Goals = styled('div', {
   margin: '$4',
+  fontFamily: '$default',
 })
 
 export const Item = styled('div', {
-  background: '$white',
+  background: '$gray500',
   boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.09)',
   borderRadius: '$md',
   padding: '$5 $6',
@@ -22,18 +23,18 @@ export const GoalContent = styled('div', {
     margin: 0,
     fontSize: '$md',
     fontWeight: '$medium',
-    color: '$black',
+    color: '$gray100',
   },
 
   'p': {
     fontSize: '$xs',
-    color: '$gray500',
+    color: '$gray300',
   }
 })
 
 export const Price = styled('div', {
   fontWeight: '$bold',
-  color: '$black',
+  color: '$gray100',
 })
 
 export const Progress = styled('div', {
@@ -45,21 +46,24 @@ export const Progress = styled('div', {
   letterSpacing: 0,
   width: '100%',
 
-  'progress': {
-    borderRadius: '$2',
-    width: '80%',
-    height: '$6',
-    boxShadow: '1px 1px 4px rgba( 0, 0, 0, 0.2)',
-  },
+})
 
-  'progress::-webkit-progress-bar': {
-    backgroundColor: 'emptyProgressbarColor',
+export const ProgressBar = styled('progress', {
+  borderRadius: '$2',
+  width: '90%',
+  height: '$6',
+  boxShadow: '1px 1px 4px rgba( 0, 0, 0, 0.2)',
+
+
+  '&::-webkit-progress-bar': {
+    backgroundColor: '$red100',
     borderRadius: '$md',
   },
 
-  'progress::-webkit-progress-value': {
-    backgroundColor: 'fullProgressbarColor',
+  '&::-webkit-progress-value': {
+    backgroundColor: '$red500',
     borderRadius: '$sm',
     boxShadow: '0 0 0 1px rgba(0, 0, 0, 0.05)',
   }
+
 })

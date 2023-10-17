@@ -551,6 +551,7 @@ var ActionSheetContent = styled("div", {
   zIndex: 1,
   padding: "$2 $1",
   animationFillMode: "forwards",
+  fontFamily: "$default",
   "a": {
     color: "$black",
     padding: "$3 $4",
@@ -571,7 +572,8 @@ var CancelButton = styled("button", {
   padding: "$2",
   marginTop: "$2",
   border: "none",
-  backgroundColor: "transparent"
+  backgroundColor: "transparent",
+  fontFamily: "$default"
 });
 
 // src/components/ActionSheet/index.tsx
@@ -638,7 +640,7 @@ var BottomBox = styled("div", {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  borderTop: "1px solid $red400",
+  borderTop: "1px solid $gray400",
   padding: "0 $1"
 });
 var Item = styled("a", {
@@ -656,16 +658,18 @@ var Item = styled("a", {
 });
 var ItemContent = styled("div", {
   width: "100%",
-  padding: "0 $1",
+  padding: "$1",
   alignItems: "center",
+  fontFamily: "$default",
+  fontSize: "$xs",
   ".icon": {
     display: "flex",
     margin: "1px auto $1 auto",
-    fontSize: "$32",
+    fontSize: "$2xl",
     lineHeight: "$4",
     color: "$gray700",
-    marginTop: "$px",
-    marginBottom: "$1"
+    paddinTop: "$4",
+    marginBottom: "$px"
   }
 });
 
@@ -688,10 +692,12 @@ import { useState as useState2 } from "react";
 
 // src/components/Cards/styles.ts
 var CardBox = styled("section", {
-  padding: "0 $4"
+  padding: "0 $4",
+  fontFamily: "$default"
 });
 var CardBlock = styled("div", {
   height: "220px",
+  width: "$80",
   borderRadius: "10px",
   background: "$red400",
   boxShadow: "0 $px $xs 0 rgba(0, 0, 0, 0.09)",
@@ -699,56 +705,61 @@ var CardBlock = styled("div", {
   position: "relative"
 });
 var CardMain = styled("div", {
-  backgroundImage: "linear-gradient(-180deg, rgba(0, 0, 0, 0) 0 %, rgba(0, 0, 0, 0.23) 100 %)",
+  display: "flex",
+  alignItems: "flex-end",
   position: "absolute",
-  borderRadius: "10px",
   left: 0,
   right: 0,
   bottom: 0,
   top: 0,
-  display: "flex",
-  alignItems: "flex-end",
+  backgroundImage: "linear-gradient(-180deg, rgba(0, 0, 0, 0) 0 %, rgba(0, 0, 0, 0.23) 100 %)",
+  borderRadius: "10px",
   padding: "$5 $6"
 });
 var CardBalance = styled("div", {
   position: "absolute",
   left: "$6",
-  top: "$6",
-  ".title": {
-    fontWeight: "$bold",
-    color: "$white",
-    marginTop: "$2",
-    fontSize: "$6"
-  }
+  top: "$6"
+});
+var Title = styled("h1", {
+  fontWeight: "$bold",
+  color: "$white",
+  marginTop: "$2",
+  fontSize: "$4xl"
 });
 var CardLabel = styled("span", {
-  fontSize: "$3",
+  fontSize: "$xs",
   letterSpacing: "$px",
   opacity: 0.5,
-  lineHeight: "$short",
+  lineHeight: "$shorter",
   marginBottom: "$sm",
   textTransform: "uppercase",
   display: "block",
-  fontWeight: "$medium"
+  fontWeight: "$medium",
+  color: "$red200"
 });
 var CardNumber = styled("div", {
-  fontSize: "$md",
+  fontSize: "$sm",
   letterSpacing: "$1",
-  fontWeight: 500
+  fontWeight: "$medium",
+  color: "$white"
 });
 var CardBottom = styled("div", {
   display: "flex",
   alignItems: "center",
-  marginTop: "$5"
+  marginTop: "$5",
+  color: "$white"
 });
 var CardExpiry = styled("div", {
-  display: "flex",
-  alignItems: "center",
-  marginTop: "$5"
+  fontWeight: "$medium",
+  fontSize: "$sm",
+  color: "$white",
+  marginRight: "$4"
 });
 var CardCVV = styled("div", {
   fontWeight: "$medium",
-  fontSize: "$sm"
+  fontSize: "$sm",
+  color: "$white"
 });
 var CardButton = styled("div", {
   position: "absolute",
@@ -762,20 +773,17 @@ var Dropdown = styled("div", {
 var DropdownButton = styled("button", {
   display: "block",
   color: "$white",
-  padding: "$2",
+  padding: "$px",
   fontSize: "$md",
   cursor: "pointer",
   fontWeight: "$bold",
   backgroundColor: "transparent",
-  border: "none",
-  "&:hover, &:focus, &:active": {
-    backgroundColor: "$red600"
-  }
+  border: "none"
 });
 var DropdownContent = styled("button", {
   position: "absolute",
   left: "-10px",
-  minWidth: "$20",
+  minWidth: "$18",
   marginLeft: "-70px",
   background: "$red500",
   borderRadius: "$4",
@@ -837,21 +845,21 @@ function Cards({ balanceValue, cardNumber, cvv, expiryDate, linkDelete, linkEdit
       ] }) : null
     ] }) }),
     /* @__PURE__ */ jsxs6(CardBalance, { children: [
-      /* @__PURE__ */ jsx7(CardLabel, { className: "label", children: "BALANCE" }),
-      /* @__PURE__ */ jsx7("h1", { className: "title", children: balanceValue.toLocaleString("pt-BR", { style: "currency", currency: "BRL" }) })
+      /* @__PURE__ */ jsx7(CardLabel, { children: "BALANCE" }),
+      /* @__PURE__ */ jsx7(Title, { children: balanceValue.toLocaleString("pt-BR", { style: "currency", currency: "BRL" }) })
     ] }),
     /* @__PURE__ */ jsxs6("div", { children: [
       /* @__PURE__ */ jsxs6(CardNumber, { children: [
-        /* @__PURE__ */ jsx7(CardLabel, { className: "label", children: "Card Number" }),
+        /* @__PURE__ */ jsx7(CardLabel, { children: "Card Number" }),
         `\u2022\u2022\u2022\u2022 ${cardNumber}`
       ] }),
       /* @__PURE__ */ jsxs6(CardBottom, { children: [
         /* @__PURE__ */ jsxs6(CardExpiry, { children: [
-          /* @__PURE__ */ jsx7(CardLabel, { className: "label", children: "Expiry Date" }),
+          /* @__PURE__ */ jsx7(CardLabel, { children: "Expiry Date" }),
           expiryDate
         ] }),
         /* @__PURE__ */ jsxs6(CardCVV, { children: [
-          /* @__PURE__ */ jsx7(CardLabel, { className: "label", children: "CVV" }),
+          /* @__PURE__ */ jsx7(CardLabel, { children: "CVV" }),
           cvv
         ] })
       ] })
@@ -867,16 +875,19 @@ var ComponentHeader = styled("section", {
   marginTop: "$8",
   marginBottom: "$4",
   padding: "0 $4",
+  fontFamily: "$default",
+  fontWeight: "$medium",
   ".title": {
     margin: 0,
     fontSize: "$xl",
     letterSpacing: "-0.01em",
     lineHeight: "$short",
     paddingRight: "$4",
-    fontWeight: "$bold"
+    fontWeight: "$bold",
+    color: "$gray100"
   },
   ".link": {
-    color: "$red500",
+    color: "$red300",
     fontSize: "$sm",
     fontWeight: "$500",
     textDecoration: "none"
@@ -899,10 +910,10 @@ var DropdownBox = styled("div", {
 });
 var DropdownButton2 = styled("button", {
   display: "block",
-  backgroundColor: "$gray200",
+  backgroundColor: "$red400",
   color: "$white",
   fontSize: "$xs",
-  borderRadius: "$4",
+  borderRadius: "$md",
   padding: "$4",
   cursor: "pointer",
   fontWeight: "$bold",
@@ -913,16 +924,17 @@ var DropdownContent2 = styled("div", {
   flexDirection: "column",
   position: "absolute",
   textAlign: "center",
-  backgroundColor: "$gray200",
-  minWidth: "80px",
+  backgroundColor: "$gray400",
   borderRadius: "$4",
   padding: "$1 $2",
   zIndex: 1,
   boxShadow: "0px $2 $4 0px rgba(0,0,0,0.2)",
+  fontFamily: "$default",
+  fontSize: "$xs",
   "a": {
     display: "block",
     color: "$black",
-    padding: "$3 $4",
+    padding: "$2 $5",
     textDecoration: "none"
   }
 });
@@ -968,12 +980,13 @@ var AppFooter = styled("div", {
   textAlign: "center",
   lineHeight: "base",
   background: "$red400",
-  marginTop: "$6"
+  marginTop: "$6",
+  fontFamily: "$default"
 });
 var FooterTitle = styled("div", {
-  fontWeight: 500,
-  color: "$gray500",
-  marginBottomm: "$2"
+  fontWeight: "$medium",
+  marginBottomm: "$2",
+  color: "$white"
 });
 
 // src/components/Footer/index.tsx
@@ -1154,26 +1167,26 @@ var LoadingWrapper = styled("div", {
   left: 0,
   top: 0,
   zIndex: 99999,
-  background: "$red400",
+  background: "$red300",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  ".loading_icon": {
+  ".loading-icon": {
     animation: `${LoadingAnimation} 0.8s linear infinite`
   }
 });
 
 // src/components/Loader/index.tsx
 import { jsx as jsx12 } from "react/jsx-runtime";
-function Loader() {
+function Loader({ logo }) {
   return /* @__PURE__ */ jsx12(LoadingWrapper, { children: /* @__PURE__ */ jsx12(
     "img",
     {
-      src: "../../assets/logo.png",
+      src: logo,
       width: 42,
       height: 42,
       alt: "logo",
-      className: "loading_icon"
+      className: "loading-icon"
     }
   ) });
 }
@@ -1186,15 +1199,15 @@ var Bill = styled("div", {
   padding: "$5 $6",
   textAlign: "center",
   color: "$white",
-  marginLeft: "$4",
   width: "25%",
+  fontFamily: "$default",
   ".wrapper": {
     textAlign: "center",
     marginBottom: "$4"
   },
   ".price": {
     fontSize: "$5",
-    fontWeight: 700,
+    fontWeight: "$bold",
     color: "$gray100",
     letterSpacing: "-0.02rem",
     lineHeight: "$shorter",
@@ -1202,7 +1215,7 @@ var Bill = styled("div", {
   },
   ".btn": {
     height: "$9",
-    padding: "$1 $4",
+    padding: "$1 0",
     fontSize: "$xs",
     lineHeight: "$shorter",
     fontWeight: 500,
@@ -1220,7 +1233,7 @@ var Bill = styled("div", {
     width: "100%"
   },
   "p": {
-    fontSize: "$xxs",
+    fontSize: "$xs",
     lineHeight: "$short",
     height: "$9",
     margin: "0 0 $3 0"
@@ -1258,10 +1271,11 @@ function MonthlyBills({ categoryIcon, description, pageToPay, price }) {
 
 // src/components/SavingGoals/styles.ts
 var Goals = styled("div", {
-  margin: "$4"
+  margin: "$4",
+  fontFamily: "$default"
 });
 var Item2 = styled("div", {
-  background: "$white",
+  background: "$gray500",
   boxShadow: "0 1px 3px 0 rgba(0, 0, 0, 0.09)",
   borderRadius: "$md",
   padding: "$5 $6",
@@ -1276,16 +1290,16 @@ var GoalContent = styled("div", {
     margin: 0,
     fontSize: "$md",
     fontWeight: "$medium",
-    color: "$black"
+    color: "$gray100"
   },
   "p": {
     fontSize: "$xs",
-    color: "$gray500"
+    color: "$gray300"
   }
 });
 var Price = styled("div", {
   fontWeight: "$bold",
-  color: "$black"
+  color: "$gray100"
 });
 var Progress = styled("div", {
   display: "flex",
@@ -1294,19 +1308,19 @@ var Progress = styled("div", {
   fontSize: "$xs",
   fontWeight: "$medium",
   letterSpacing: 0,
-  width: "100%",
-  "progress": {
-    borderRadius: "$2",
-    width: "80%",
-    height: "$6",
-    boxShadow: "1px 1px 4px rgba( 0, 0, 0, 0.2)"
-  },
-  "progress::-webkit-progress-bar": {
-    backgroundColor: "emptyProgressbarColor",
+  width: "100%"
+});
+var ProgressBar = styled("progress", {
+  borderRadius: "$2",
+  width: "90%",
+  height: "$6",
+  boxShadow: "1px 1px 4px rgba( 0, 0, 0, 0.2)",
+  "&::-webkit-progress-bar": {
+    backgroundColor: "$red100",
     borderRadius: "$md"
   },
-  "progress::-webkit-progress-value": {
-    backgroundColor: "fullProgressbarColor",
+  "&::-webkit-progress-value": {
+    backgroundColor: "$red500",
     borderRadius: "$sm",
     boxShadow: "0 0 0 1px rgba(0, 0, 0, 0.05)"
   }
@@ -1326,7 +1340,7 @@ function SavingGoals({ goal, category, amount, locked }) {
     ] }),
     /* @__PURE__ */ jsxs13(Progress, { children: [
       /* @__PURE__ */ jsx14(
-        "progress",
+        ProgressBar,
         {
           max: "100",
           value: percentage
@@ -1343,9 +1357,11 @@ var StatBox = styled("div", {
   boxShadow: "0 1px 3px 0 rgba(0, 0, 0, 0.09)",
   borderRadius: "$md",
   padding: "$5 $6",
+  fontFamily: "$default",
+  backgroundColor: "$gray500",
   ".title": {
     fontSize: "$xs",
-    color: "$black",
+    color: "$gray100",
     fontWeight: "$medium",
     display: "block",
     marginBottom: "$2",
@@ -1387,10 +1403,11 @@ StatsBox.displayName = "StatsBox";
 
 // src/components/Transactions/styles.ts
 var TransactionsBox = styled("section", {
-  padding: "0 $4"
+  padding: "0 $4",
+  fontFamily: "$default"
 });
 var Transaction = styled("a", {
-  background: "$white",
+  background: "$gray500",
   boxShadow: "0 $px $1 0 rgba(0, 0, 0, 0.09)",
   borderRadius: "$md",
   padding: "$5 $6",
@@ -1412,7 +1429,11 @@ var BoxRight = styled("div", {
   paddingLeft: "$2"
 });
 var Details = styled("div", {
-  color: "$gray500"
+  color: "$gray300",
+  fontSize: "$lg",
+  "p": {
+    fontSize: "$sm"
+  }
 });
 
 // src/components/Transactions/index.tsx
@@ -1439,29 +1460,28 @@ import ControlPointRoundedIcon from "@mui/icons-material/ControlPointRounded";
 // src/components/Wallet/styles.ts
 var Wallet = styled("div", {
   padding: "0 $4",
-  paddingTop: "$2"
+  fontFamily: "$default"
 });
 var Balance = styled("div", {
   display: "flex",
-  height: "$8",
-  width: "$16",
+  height: "$32",
+  width: "$64",
   alignItems: "center",
   justifyContent: "space-between",
-  marginBottom: "$2",
-  background: "$white",
+  background: "$gray500",
   boxShadow: "0 1px 3px 0 rgba(0, 0, 0, 0.09)",
   borderRadius: "$md",
-  padding: "$5 $6",
+  padding: "$4 $5",
   ".tittle": {
     fontWeight: "$medium",
     display: "block",
-    marginBottom: "$2"
+    marginBottom: "$1"
   },
   ".total": {
     fontWeight: "$bold",
     letterSpacing: "-0.01em",
     lineHeight: "$tall",
-    fontSize: "$xl"
+    fontSize: "$4xl"
   }
 });
 var BoxLeft2 = styled("div", {

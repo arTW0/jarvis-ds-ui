@@ -2,32 +2,31 @@ import { styled } from "../../styles"
 
 export const Wallet = styled('div', {
   padding: '0 $4',
-  paddingTop: '$2',
+  fontFamily: '$default',
 })
 
 export const Balance = styled('div', {
   display: 'flex',
-  height: '$8',
-  width: '$16',
+  height: '$32',
+  width: '$64',
   alignItems: 'center',
   justifyContent: 'space-between',
-  marginBottom: '$2',
-  background: '$white',
+  background: '$gray500',
   boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.09)',
   borderRadius: '$md',
-  padding: '$5 $6',
+  padding: '$4 $5',
 
   '.tittle': {
     fontWeight: '$medium',
     display: 'block',
-    marginBottom: '$2',
+    marginBottom: '$1',
   },
 
   '.total': {
     fontWeight: '$bold',
     letterSpacing: '-0.01em',
     lineHeight: '$tall',
-    fontSize: '$xl',
+    fontSize: '$4xl',
   }
 })
 

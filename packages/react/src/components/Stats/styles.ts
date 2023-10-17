@@ -5,10 +5,12 @@ export const StatBox = styled('div', {
   boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.09)',
   borderRadius: '$md',
   padding: '$5 $6',
+  fontFamily: '$default',
+  backgroundColor: '$gray500',
 
   '.title': {
     fontSize: '$xs',
-    color: '$black',
+    color: '$gray100',
     fontWeight: '$medium',
     display: 'block',
     marginBottom: '$2',

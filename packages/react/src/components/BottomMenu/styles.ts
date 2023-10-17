@@ -11,7 +11,7 @@ export const BottomBox = styled('div', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  borderTop: '1px solid $red400',
+  borderTop: '1px solid $gray400',
   padding: '0 $1',
 })
 
@@ -31,16 +31,18 @@ export const Item = styled('a', {
 
 export const ItemContent = styled('div', {
   width: '100%',
-  padding: '0 $1',
+  padding: '$1',
   alignItems: 'center',
+  fontFamily: '$default',
+  fontSize: '$xs',
 
   '.icon': {
     display: 'flex',
     margin: '1px auto $1 auto',
-    fontSize: '$32',
+    fontSize: '$2xl',
     lineHeight: '$4',
     color: '$gray700',
-    marginTop: '$px',
-    marginBottom: '$1',
+    paddinTop: '$4',
+    marginBottom: '$px',
   }
 })

@@ -7,8 +7,8 @@ export const Bill = styled('div', {
   padding: '$5 $6',
   textAlign: 'center',
   color: '$white',
-  marginLeft: '$4',
   width: '25%',
+  fontFamily: '$default',
 
   '.wrapper': {
     textAlign: 'center',
@@ -17,7 +17,7 @@ export const Bill = styled('div', {
 
   '.price': {
     fontSize: '$5',
-    fontWeight: 700,
+    fontWeight: '$bold',
     color: '$gray100',
     letterSpacing: '-0.02rem',
     lineHeight: '$shorter',
@@ -26,7 +26,7 @@ export const Bill = styled('div', {
 
   '.btn': {
     height: '$9',
-    padding: '$1 $4',
+    padding: '$1 0',
     fontSize: '$xs',
     lineHeight: '$shorter',
     fontWeight: 500,
@@ -47,7 +47,7 @@ export const Bill = styled('div', {
   },
 
   'p': {
-    fontSize: '$xxs',
+    fontSize: '$xs',
     lineHeight: '$short',
     height: '$9',
     margin: '0 0 $3 0',

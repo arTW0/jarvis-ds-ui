@@ -48,6 +48,7 @@ export const ActionSheetContent = styled('div', {
   zIndex: 1,
   padding: '$2 $1',
   animationFillMode: 'forwards',
+  fontFamily: '$default',
 
   'a': {
     color: '$black',
@@ -73,4 +74,5 @@ export const CancelButton = styled('button', {
   marginTop: '$2',
   border: 'none',
   backgroundColor: 'transparent',
+  fontFamily: '$default',
 })

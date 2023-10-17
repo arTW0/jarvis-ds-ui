@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Box, ActionSheet, ActionSheetProps } from '@jarvis-ui/react'
 
 export default {
-  title: 'Form/Action Sheet',
+  title: 'Options/Action Sheet',
   component: ActionSheet,
   args: {
     labelButton: 'Open Action Sheet',
@@ -20,14 +20,9 @@ export default {
   },
   decorators: [
     (Story) => {
-      return (
-        <Box
-          as="label"
-          css={{ display: 'flex', flexDirection: 'column', gap: '$2', border: 'none' }}
-        >
-          {Story()}
-        </Box>
-      )
+      return <>
+        {Story()}
+      </>
     },
   ]
 } as Meta<ActionSheetProps>

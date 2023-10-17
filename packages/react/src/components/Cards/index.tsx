@@ -18,7 +18,8 @@ import {
   CardNumber,
   Dropdown,
   DropdownButton,
-  DropdownContent
+  DropdownContent,
+  Title
 } from './styles'
 
 export interface CardsProps extends ComponentProps<typeof CardBox> {
@@ -73,26 +74,26 @@ export function Cards({ balanceValue, cardNumber, cvv, expiryDate, linkDelete, l
             </Dropdown>
           </CardButton>
           <CardBalance>
-            <CardLabel className="label">BALANCE</CardLabel>
-            <h1 className="title">
+            <CardLabel>BALANCE</CardLabel>
+            <Title>
               {balanceValue.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
-            </h1>
+            </Title>
           </CardBalance>
 
           <div>
             <CardNumber>
-              <CardLabel className="label">Card Number</CardLabel>
+              <CardLabel>Card Number</CardLabel>
               {`•••• ${cardNumber}`}
             </CardNumber>
 
             <CardBottom>
               <CardExpiry>
-                <CardLabel className="label">Expiry Date</CardLabel>
+                <CardLabel>Expiry Date</CardLabel>
                 {expiryDate}
               </CardExpiry>
 
               <CardCVV>
-                <CardLabel className="label">CVV</CardLabel>
+                <CardLabel>CVV</CardLabel>
                 {cvv}
               </CardCVV>
             </CardBottom>

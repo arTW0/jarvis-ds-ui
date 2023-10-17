@@ -1,14 +1,19 @@
+import { ComponentProps, ElementType } from 'react'
 import { LoadingWrapper } from './styles'
 
-export function Loader() {
+export interface LoaderProps extends ComponentProps<typeof LoadingWrapper> {
+  logo: string
+}
+
+export function Loader({ logo }: LoaderProps) {
   return (
     <LoadingWrapper>
       <img
-        src={'../../assets/logo.png'}
+        src={logo}
         width={42}
         height={42}
         alt="logo"
-        className="loading_icon"
+        className="loading-icon"
       />
     </LoadingWrapper>
   )

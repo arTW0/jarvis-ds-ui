@@ -7,10 +7,10 @@ export const DropdownBox = styled('div', {
 
 export const DropdownButton = styled('button', {
   display: 'block',
-  backgroundColor: '$gray200',
+  backgroundColor: '$red400',
   color: '$white',
   fontSize: '$xs',
-  borderRadius: '$4',
+  borderRadius: '$md',
   padding: '$4',
   cursor: 'pointer',
   fontWeight: '$bold',
@@ -22,17 +22,18 @@ export const DropdownContent = styled('div', {
   flexDirection: 'column',
   position: 'absolute',
   textAlign: 'center',
-  backgroundColor: '$gray200',
-  minWidth: '80px',
+  backgroundColor: '$gray400',
   borderRadius: '$4',
   padding: '$1 $2',
   zIndex: 1,
   boxShadow: '0px $2 $4 0px rgba(0,0,0,0.2)',
+  fontFamily: '$default',
+  fontSize: '$xs',
 
   'a': {
     display: 'block',
     color: '$black',
-    padding: '$3 $4',
+    padding: '$2 $5',
     textDecoration: 'none',
   }
 })

@@ -8,9 +8,9 @@ import AccountBalanceRoundedIcon from '@mui/icons-material/AccountBalanceRounded
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 
 export interface MonthlyBillsProps {
-  categoryIcon: string;
-  price: number;
-  description: string;
+  categoryIcon: string | string[];
+  price: number | number[];
+  description: string | string[];
   pageToPay: string;
 }
 

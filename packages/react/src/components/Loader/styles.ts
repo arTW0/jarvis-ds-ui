@@ -16,12 +16,12 @@ export const LoadingWrapper = styled('div', {
   left: 0,
   top: 0,
   zIndex: 99999,
-  background: '$red400',
+  background: '$red300',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
 
-  '.loading_icon': {
+  '.loading-icon': {
     animation: `${LoadingAnimation} 0.8s linear infinite`,
   }
 })

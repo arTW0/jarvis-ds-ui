@@ -1,3 +1,4 @@
+import { ComponentProps, ElementType } from 'react'
 import { AppFooter, FooterTitle } from './styles'
 
 export function Footer() {
@@ -10,4 +11,8 @@ export function Footer() {
       Todos os direitos reservados.
     </AppFooter>
   )
+}
+
+export interface FooterProps extends ComponentProps<typeof AppFooter> {
+  as?: ElementType
 }

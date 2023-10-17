@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Box, BottomMenu, BottomMenuProps } from '@jarvis-ui/react'
+import { BottomMenu, BottomMenuProps } from '@jarvis-ui/react'
 
 export default {
   title: 'Navigation/Bottom Menu',
@@ -12,24 +12,28 @@ export default {
       // {label: "Meus cartões", icon: "cards", link: "/"},
       { label: "Contas", icon: "bills", link: "/" },
       // {label: "Objetivos", icon: "goals", link: "/"},
-      { label: "Configurações", icon: "settings", link: "/settings" },
+      { label: "Configurações", icon: "settings", link: "/" },
       // {label: "Páginas", icon: "pages", link: "/"},
       { label: "Sair", icon: "logout", link: "/" },
       // {label: "Apps", icon: "apps", link: "/"},
     ]
   },
+  argTypes: {
+    items: {
+      icon: ['profile', 'overview', 'transactions', 'cards', 'bills', 'goals', 'settings', 'pages', 'logout', 'apps']
+    },
+    control: {
+      type: 'inline-radio',
+    },
+  },
+
   decorators: [
     (Story) => {
-      return (
-        <Box
-          as="label"
-          css={{ display: 'flex', flexDirection: 'column', gap: '$2', border: 'none' }}
-        >
-          {Story()}
-        </Box>
-      )
+      return <>
+        {Story()}
+      </>
     },
-  ]
+  ],
 } as Meta<BottomMenuProps>
 
 export const Primary: StoryObj<BottomMenuProps> = {

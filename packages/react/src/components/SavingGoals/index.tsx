@@ -1,5 +1,5 @@
 import { ComponentProps } from 'react';
-import { GoalContent, Goals, Item, Price, Progress } from './styles'
+import { GoalContent, Goals, Item, Price, Progress, ProgressBar } from './styles'
 
 export interface SavingGoalsProps extends ComponentProps<typeof Goals> {
   goal: string;
@@ -24,7 +24,7 @@ export function SavingGoals({ goal, category, amount, locked }: SavingGoalsProps
           </Price>
         </GoalContent>
         <Progress>
-          <progress
+          <ProgressBar
             max="100"
             value={percentage}
           />

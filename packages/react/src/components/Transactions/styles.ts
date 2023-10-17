@@ -1,11 +1,12 @@
 import { styled } from "../../styles"
 
 export const TransactionsBox = styled('section', {
-  padding: '0 $4'
+  padding: '0 $4',
+  fontFamily: '$default',
 })
 
 export const Transaction = styled('a', {
-  background: '$white',
+  background: '$gray500',
   boxShadow: '0 $px $1 0 rgba(0, 0, 0, 0.09)',
   borderRadius: '$md',
   padding: '$5 $6',
@@ -31,5 +32,10 @@ export const BoxRight = styled('div', {
 })
 
 export const Details = styled('div', {
-  color: '$gray500',
+  color: '$gray300',
+  fontSize: '$lg',
+
+  'p': {
+    fontSize: '$sm',
+  }
 })

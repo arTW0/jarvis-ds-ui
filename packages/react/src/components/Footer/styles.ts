@@ -1,4 +1,3 @@
-import { colors } from '@jarvis-ui/tokens'
 import { styled } from '../../styles'
 
 export const AppFooter = styled('div', {
@@ -14,10 +13,11 @@ export const AppFooter = styled('div', {
   lineHeight: 'base',
   background: '$red400',
   marginTop: '$6',
+  fontFamily: '$default',
 })
 
 export const FooterTitle = styled('div', {
-  fontWeight: 500,
-  color: '$gray500',
-  marginBottomm: '$2'
+  fontWeight: '$medium',
+  marginBottomm: '$2',
+  color: '$white'
 })
