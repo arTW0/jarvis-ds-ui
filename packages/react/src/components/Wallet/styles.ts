@@ -11,23 +11,25 @@ export const Balance = styled('div', {
   width: '$64',
   alignItems: 'center',
   justifyContent: 'space-between',
-  background: '$gray500',
+  background: '$red600',
   boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.09)',
   borderRadius: '$md',
   padding: '$4 $5',
+})
 
-  '.tittle': {
-    fontWeight: '$medium',
-    display: 'block',
-    marginBottom: '$1',
-  },
+export const Title = styled('span', {
+  fontWeight: '$medium',
+  display: 'block',
+  marginBottom: '$1',
+  color: '$gray100'
+})
 
-  '.total': {
-    fontWeight: '$bold',
-    letterSpacing: '-0.01em',
-    lineHeight: '$tall',
-    fontSize: '$4xl',
-  }
+export const Total = styled('h1', {
+  fontWeight: '$bold',
+  letterSpacing: '-0.01em',
+  lineHeight: '$tall',
+  fontSize: '$4xl',
+  color: '$gray100'
 })
 
 export const BoxLeft = styled('div', {
@@ -35,5 +37,6 @@ export const BoxLeft = styled('div', {
 })
 
 export const BoxRight = styled('div', {
-  padding: 0
+  padding: 0,
+  color: '$gray100'
 })

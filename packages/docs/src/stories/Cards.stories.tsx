@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Box, Cards, CardsProps } from '@jarvis-ui/react'
+import { Cards, CardsProps } from '@jarvis-ui/react'
 
 export default {
   title: 'Finance/Cards',
@@ -16,12 +16,9 @@ export default {
   decorators: [
     (Story) => {
       return (
-        <Box
-          as="label"
-          css={{ display: 'flex', flexDirection: 'column', gap: '$2', border: 'none' }}
-        >
+        <>
           {Story()}
-        </Box>
+        </>
       )
     }
   ]

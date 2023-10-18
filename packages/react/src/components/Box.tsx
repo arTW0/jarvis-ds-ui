@@ -4,8 +4,9 @@ import { styled } from '../styles'
 export const Box = styled('div', {
   padding: '$4',
   borderRadius: '$md',
-  backgroundColor: '$gray800',
-  border: '1px solid $gray600',
+  backgroundColor: '$red600',
+  color: '$gray100',
+  border: '1px solid $gray100',
 })
 
 export interface BoxProps extends ComponentProps<typeof Box> {

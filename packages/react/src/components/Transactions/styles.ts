@@ -32,10 +32,11 @@ export const BoxRight = styled('div', {
 })
 
 export const Details = styled('div', {
-  color: '$gray300',
+  color: '$gray100',
   fontSize: '$lg',
 
   'p': {
     fontSize: '$sm',
+    color: '$gray300'
   }
 })

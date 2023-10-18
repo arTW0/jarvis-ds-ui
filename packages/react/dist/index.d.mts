@@ -2001,6 +2001,9 @@ interface BottomMenuProps extends ComponentProps<typeof BottomBox> {
     }[];
 }
 declare function BottomMenu({ items }: BottomMenuProps): react_jsx_runtime.JSX.Element;
+declare namespace BottomMenu {
+    var displayName: string;
+}
 
 declare const CardBox: _stitches_react_types_styled_component.StyledComponent<"section", {}, {}, _stitches_react_types_css_util.CSS<{}, {
     colors: {

@@ -6,7 +6,7 @@ export const Goals = styled('div', {
 })
 
 export const Item = styled('div', {
-  background: '$gray500',
+  background: '$red600',
   boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.09)',
   borderRadius: '$md',
   padding: '$5 $6',
@@ -28,7 +28,7 @@ export const GoalContent = styled('div', {
 
   'p': {
     fontSize: '$xs',
-    color: '$gray300',
+    color: '$red100',
   }
 })
 
@@ -45,23 +45,18 @@ export const Progress = styled('div', {
   fontWeight: '$medium',
   letterSpacing: 0,
   width: '100%',
-
+  color: '$gray100'
 })
 
 export const ProgressBar = styled('progress', {
-  borderRadius: '$2',
   width: '90%',
   height: '$6',
   boxShadow: '1px 1px 4px rgba( 0, 0, 0, 0.2)',
-
-  '&::-webkit-progress-bar': {
-    backgroundColor: '$red100',
-    borderRadius: '$md',
-  },
+  backgroundColor: '$red100',
+  borderRadius: '$md',
 
   '&::-webkit-progress-value': {
     backgroundColor: '$red500',
     borderRadius: '$md',
-    boxShadow: '0 0 0 1px rgba(0, 0, 0, 0.05)',
   }
 })

@@ -17,13 +17,13 @@ export const ComponentHeader = styled('section', {
     lineHeight: '$short',
     paddingRight: '$4',
     fontWeight: '$bold',
-    color: '$gray100'
+    color: '$gray500'
   },
 
   '.link': {
-    color: '$red300',
+    color: '$red500',
     fontSize: '$sm',
-    fontWeight: '$500',
+    fontWeight: '$medium',
     textDecoration: 'none',
   }
 })

@@ -1,5 +1,5 @@
 import ControlPointRoundedIcon from '@mui/icons-material/ControlPointRounded';
-import { Balance, BoxLeft, BoxRight, Wallet } from './styles'
+import { Balance, BoxLeft, BoxRight, Title, Total, Wallet } from './styles'
 import { ComponentProps } from 'react';
 
 export interface WalletProps extends ComponentProps<typeof Wallet> {
@@ -12,18 +12,18 @@ export function WalletComponent({ totalBalance, addFoundsLink }: WalletProps) {
     <Wallet>
       <Balance>
         <BoxLeft>
-          <span className="title">Total Balance</span>
-          <h1 className="total">
+          <Title>Total Balance</Title>
+          <Total>
             {totalBalance ?
               totalBalance.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
               : null}
-          </h1>
+          </Total>
         </BoxLeft>
         <BoxRight>
           <a href={addFoundsLink}>
             <ControlPointRoundedIcon
               sx={{
-                color: "black",
+                color: "white",
                 fontSize: "2.5rem",
                 marginTop: "1rem"
               }}

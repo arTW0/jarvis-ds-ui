@@ -145,8 +145,9 @@ var {
 var Box = styled("div", {
   padding: "$4",
   borderRadius: "$md",
-  backgroundColor: "$gray800",
-  border: "1px solid $gray600"
+  backgroundColor: "$red600",
+  color: "$gray100",
+  border: "1px solid $gray100"
 });
 Box.displayName = "Box";
 
@@ -155,7 +156,7 @@ var Text = styled("p", {
   fontFamily: "$default",
   lineHeight: "$base",
   margin: 0,
-  color: "$gray100",
+  color: "$gray500",
   variants: {
     size: {
       xxs: { fontSize: "$xxs" },
@@ -184,7 +185,7 @@ var Heading = styled("h2", {
   fontFamily: "$default",
   lineHeight: "$shorter",
   margin: 0,
-  color: "$gray100",
+  color: "$gray500",
   variants: {
     size: {
       sm: { fontSize: "$xl" },
@@ -320,7 +321,7 @@ Button.displayName = "Button";
 
 // src/components/TextInput/styles.ts
 var TextInputContainer = styled("div", {
-  backgroundColor: "$gray500",
+  backgroundColor: "$gray100",
   padding: "$3 $4",
   borderRadius: "$sm",
   boxSizing: "border-box",
@@ -338,13 +339,13 @@ var TextInputContainer = styled("div", {
 var Prefix = styled("span", {
   fontFamily: "$default",
   fontSize: "$sm",
-  color: "$gray100",
+  color: "$gray400",
   fontWeight: "regular"
 });
 var Input = styled("input", {
   fontFamily: "$default",
   fontSize: "$sm",
-  color: "$white",
+  color: "$gray600",
   fontWeight: "regular",
   background: "transparent",
   border: 0,
@@ -373,7 +374,7 @@ TextInput.displayName = "TextInput";
 
 // src/components/TextArea.tsx
 var TextArea = styled("textarea", {
-  backgroundColor: "$gray900",
+  backgroundColor: "$gray100",
   padding: "$3 $4",
   borderRadius: "$sm",
   boxSizing: "border-box",
@@ -407,7 +408,7 @@ var CheckboxContainer = styled(Checkbox.Root, {
   all: "unset",
   width: "$6",
   height: "$6",
-  backgroundColor: "$gray500",
+  backgroundColor: "$gray100",
   borderRadius: "$xs",
   lineHeight: 0,
   cursor: "pointer",
@@ -416,7 +417,7 @@ var CheckboxContainer = styled(Checkbox.Root, {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  border: "2px solid $gray500",
+  border: "2px solid $gray300",
   '&[data-state="checked"]': {
     backgroundColor: "$red300"
   },
@@ -441,7 +442,7 @@ var slideOut = keyframes({
   }
 });
 var CheckboxIndicator = styled(Checkbox.Indicator, {
-  color: "$gray500",
+  color: "$gray100",
   width: "$4",
   height: "$4",
   '&[data-state="checked"]': {
@@ -683,6 +684,7 @@ function BottomMenu({ items }) {
     /* @__PURE__ */ jsx6("strong", { children: item.label })
   ] }, `${item}${index}`) })) });
 }
+BottomMenu.displayName = "BottomMenu";
 
 // src/components/Cards/index.tsx
 import MoreHorizRoundedIcon from "@mui/icons-material/MoreHorizRounded";
@@ -885,12 +887,12 @@ var ComponentHeader = styled("section", {
     lineHeight: "$short",
     paddingRight: "$4",
     fontWeight: "$bold",
-    color: "$gray100"
+    color: "$gray500"
   },
   ".link": {
-    color: "$red300",
+    color: "$red500",
     fontSize: "$sm",
-    fontWeight: "$500",
+    fontWeight: "$medium",
     textDecoration: "none"
   }
 });
@@ -1228,9 +1230,9 @@ var Bill = styled("div", {
     textDecoration: "none !important",
     borderRadius: "$md",
     borderWidth: "$px",
-    background: "$red100 !important",
+    background: "$red200 !important",
     borderColor: "$red300 !important",
-    color: "$white !important",
+    color: "$gray500",
     width: "100%"
   },
   "p": {
@@ -1276,7 +1278,7 @@ var Goals = styled("div", {
   fontFamily: "$default"
 });
 var Item2 = styled("div", {
-  background: "$gray500",
+  background: "$red600",
   boxShadow: "0 1px 3px 0 rgba(0, 0, 0, 0.09)",
   borderRadius: "$md",
   padding: "$5 $6",
@@ -1295,7 +1297,7 @@ var GoalContent = styled("div", {
   },
   "p": {
     fontSize: "$xs",
-    color: "$gray300"
+    color: "$red100"
   }
 });
 var Price = styled("div", {
@@ -1309,21 +1311,18 @@ var Progress = styled("div", {
   fontSize: "$xs",
   fontWeight: "$medium",
   letterSpacing: 0,
-  width: "100%"
+  width: "100%",
+  color: "$gray100"
 });
 var ProgressBar = styled("progress", {
-  borderRadius: "$2",
   width: "90%",
   height: "$6",
   boxShadow: "1px 1px 4px rgba( 0, 0, 0, 0.2)",
-  "&::-webkit-progress-bar": {
-    backgroundColor: "$red100",
-    borderRadius: "$md"
-  },
+  backgroundColor: "$red100",
+  borderRadius: "$md",
   "&::-webkit-progress-value": {
     backgroundColor: "$red500",
-    borderRadius: "$md",
-    boxShadow: "0 0 0 1px rgba(0, 0, 0, 0.05)"
+    borderRadius: "$md"
   }
 });
 
@@ -1354,7 +1353,6 @@ function SavingGoals({ goal, category, amount, locked }) {
 
 // src/components/Stats/styles.ts
 var StatBox = styled("div", {
-  background: "$white",
   boxShadow: "0 1px 3px 0 rgba(0, 0, 0, 0.09)",
   borderRadius: "$md",
   padding: "$5 $6",
@@ -1430,10 +1428,11 @@ var BoxRight = styled("div", {
   paddingLeft: "$2"
 });
 var Details = styled("div", {
-  color: "$gray300",
+  color: "$gray100",
   fontSize: "$lg",
   "p": {
-    fontSize: "$sm"
+    fontSize: "$sm",
+    color: "$gray300"
   }
 });
 
@@ -1469,27 +1468,30 @@ var Balance = styled("div", {
   width: "$64",
   alignItems: "center",
   justifyContent: "space-between",
-  background: "$gray500",
+  background: "$red600",
   boxShadow: "0 1px 3px 0 rgba(0, 0, 0, 0.09)",
   borderRadius: "$md",
-  padding: "$4 $5",
-  ".tittle": {
-    fontWeight: "$medium",
-    display: "block",
-    marginBottom: "$1"
-  },
-  ".total": {
-    fontWeight: "$bold",
-    letterSpacing: "-0.01em",
-    lineHeight: "$tall",
-    fontSize: "$4xl"
-  }
+  padding: "$4 $5"
+});
+var Title2 = styled("span", {
+  fontWeight: "$medium",
+  display: "block",
+  marginBottom: "$1",
+  color: "$gray100"
+});
+var Total = styled("h1", {
+  fontWeight: "$bold",
+  letterSpacing: "-0.01em",
+  lineHeight: "$tall",
+  fontSize: "$4xl",
+  color: "$gray100"
 });
 var BoxLeft2 = styled("div", {
   paddingRight: "$2"
 });
 var BoxRight2 = styled("div", {
-  padding: 0
+  padding: 0,
+  color: "$gray100"
 });
 
 // src/components/Wallet/index.tsx
@@ -1497,14 +1499,14 @@ import { jsx as jsx17, jsxs as jsxs16 } from "react/jsx-runtime";
 function WalletComponent({ totalBalance, addFoundsLink }) {
   return /* @__PURE__ */ jsx17(Wallet, { children: /* @__PURE__ */ jsxs16(Balance, { children: [
     /* @__PURE__ */ jsxs16(BoxLeft2, { children: [
-      /* @__PURE__ */ jsx17("span", { className: "title", children: "Total Balance" }),
-      /* @__PURE__ */ jsx17("h1", { className: "total", children: totalBalance ? totalBalance.toLocaleString("pt-BR", { style: "currency", currency: "BRL" }) : null })
+      /* @__PURE__ */ jsx17(Title2, { children: "Total Balance" }),
+      /* @__PURE__ */ jsx17(Total, { children: totalBalance ? totalBalance.toLocaleString("pt-BR", { style: "currency", currency: "BRL" }) : null })
     ] }),
     /* @__PURE__ */ jsx17(BoxRight2, { children: /* @__PURE__ */ jsx17("a", { href: addFoundsLink, children: /* @__PURE__ */ jsx17(
       ControlPointRoundedIcon,
       {
         sx: {
-          color: "black",
+          color: "white",
           fontSize: "2.5rem",
           marginTop: "1rem"
         }

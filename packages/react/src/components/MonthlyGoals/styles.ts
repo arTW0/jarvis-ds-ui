@@ -39,9 +39,9 @@ export const Bill = styled('div', {
     borderRadius: '$md',
     borderWidth: '$px',
 
-    background: '$red100 !important',
+    background: '$red200 !important',
     borderColor: '$red300 !important',
-    color: '$white !important',
+    color: '$gray500',
 
     width: '100%',
   },

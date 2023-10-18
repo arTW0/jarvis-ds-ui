@@ -58,3 +58,5 @@ export function BottomMenu({ items }: BottomMenuProps) {
     </BottomBox>
   )
 }
+
+BottomMenu.displayName = 'BottomMenu'

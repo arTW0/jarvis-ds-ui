@@ -1,7 +1,6 @@
 import { styled } from "../../styles";
 
 export const StatBox = styled('div', {
-  background: '$white',
   boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.09)',
   borderRadius: '$md',
   padding: '$5 $6',
