@@ -28,6 +28,7 @@ export const Primary: StoryObj<TextAreaProps> = {
 
 export const Disabled: StoryObj<TextAreaProps> = {
   args: {
+    placeholder: 'Disabled...',
     disabled: true,
   },
 }

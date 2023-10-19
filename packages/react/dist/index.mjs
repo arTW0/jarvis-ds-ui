@@ -146,7 +146,6 @@ var Box = styled("div", {
   padding: "$4",
   borderRadius: "$md",
   backgroundColor: "$red600",
-  color: "$gray100",
   border: "1px solid $gray100"
 });
 Box.displayName = "Box";
@@ -156,7 +155,7 @@ var Text = styled("p", {
   fontFamily: "$default",
   lineHeight: "$base",
   margin: 0,
-  color: "$gray500",
+  color: "$gray100",
   variants: {
     size: {
       xxs: { fontSize: "$xxs" },
@@ -228,8 +227,8 @@ var AvatarFallback = styled(Avatar.Fallback, {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  backgroundColor: "$gray600",
-  color: "$gray200",
+  backgroundColor: "$red200",
+  color: "$gray500",
   svg: {
     width: "$6",
     height: "$6"
@@ -333,6 +332,7 @@ var TextInputContainer = styled("div", {
   },
   "&:has(input:disabled)": {
     opacity: 0.5,
+    backgroundColor: "$gray600",
     cursor: "not-allowed"
   }
 });
@@ -390,7 +390,7 @@ var TextArea = styled("textarea", {
     borderColor: "$red300"
   },
   "&:disabled": {
-    opacity: 0.5,
+    backgroundColor: "$gray400",
     cursor: "not-allowed"
   },
   "&:placeholder": {
@@ -508,7 +508,9 @@ MultiStep.displayName = "MultiStep";
 import { useState } from "react";
 
 // src/components/ActionSheet/styles.ts
-var ActionSheetContainer = styled("div", {});
+var ActionSheetContainer = styled("div", {
+  fontFamily: "$default"
+});
 var ActionButton = styled("button", {
   backgroundColor: "$red300",
   color: "$white",
@@ -536,7 +538,7 @@ var InactiveAnimation = keyframes({
     opacity: 1
   },
   to: {
-    transform: "translatey(100%)"
+    transform: "translatey(110%)"
   }
 });
 var ActionSheetContent = styled("div", {
@@ -548,11 +550,10 @@ var ActionSheetContent = styled("div", {
   alignItems: "center",
   backgroundColor: "$gray300",
   width: "25vw",
-  borderRadius: "$4",
+  borderRadius: "$sm",
   zIndex: 1,
   padding: "$2 $1",
   animationFillMode: "forwards",
-  fontFamily: "$default",
   "a": {
     color: "$black",
     padding: "$3 $4",
@@ -574,8 +575,8 @@ var CancelButton = styled("button", {
   marginTop: "$2",
   border: "none",
   backgroundColor: "transparent",
-  fontFamily: "$default",
-  fontSize: "$md"
+  fontSize: "$sm",
+  cursor: "pointer"
 });
 
 // src/components/ActionSheet/index.tsx
@@ -619,70 +620,60 @@ ActionSheet.displayName = "ActionSheet";
 
 // src/components/BottomMenu/index.tsx
 import LeaderboardRoundedIcon from "@mui/icons-material/LeaderboardRounded";
-import AccountBoxRoundedIcon from "@mui/icons-material/AccountBoxRounded";
-import SyncAltRoundedIcon from "@mui/icons-material/SyncAltRounded";
-import ArticleRoundedIcon from "@mui/icons-material/ArticleRounded";
+import PersonRoundedIcon from "@mui/icons-material/PersonRounded";
 import AppsRoundedIcon from "@mui/icons-material/AppsRounded";
-import CreditCardRoundedIcon from "@mui/icons-material/CreditCardRounded";
 import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
-import HelpOutlineRoundedIcon from "@mui/icons-material/HelpOutlineRounded";
-import ReceiptLongRoundedIcon from "@mui/icons-material/ReceiptLongRounded";
-import ExitToAppRoundedIcon from "@mui/icons-material/ExitToAppRounded";
-import SavingsRoundedIcon from "@mui/icons-material/SavingsRounded";
 
 // src/components/BottomMenu/styles.ts
 var BottomBox = styled("div", {
   minHeight: "$12",
   position: "fixed",
-  width: "100%",
-  bottom: 0,
-  left: -10,
+  width: "70%",
+  bottom: 10,
+  left: "15%",
+  boxShadow: "0px $2 $4 0px rgba(0,0,0,0.2)",
   overflow: "hidden",
-  background: "$gray300",
+  background: "$gray200",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  borderTop: "1px solid $gray400",
-  padding: "0 $1"
+  padding: "0 $1",
+  borderRadius: "$full"
 });
 var Item = styled("a", {
-  fontSize: "$2",
-  letterSpacing: 0,
-  textAlign: "center",
   width: "80%",
   height: "$12",
-  lineHeight: "1.2em",
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
-  textDecoration: "none",
-  color: "$gray700"
+  textDecoration: "none"
 });
 var ItemContent = styled("div", {
-  width: "100%",
   padding: "$1",
-  alignItems: "center",
-  fontFamily: "$default",
-  fontSize: "$xs",
-  ".icon": {
-    display: "flex",
-    margin: "1px auto $1 auto",
-    fontSize: "$2xl",
-    lineHeight: "$4",
-    color: "$gray700",
-    paddinTop: "$4",
-    marginBottom: "$px"
+  fontSize: "$xxs",
+  display: "flex",
+  margin: "1px auto $1 auto",
+  lineHeight: "$4",
+  color: "$red600",
+  paddinTop: "$4",
+  marginBottom: "$px",
+  ".active": {
+    borderRadius: "$full",
+    backgroundColor: "$red600",
+    color: "$white",
+    padding: "$2"
   }
 });
 
 // src/components/BottomMenu/index.tsx
 import { jsx as jsx6, jsxs as jsxs5 } from "react/jsx-runtime";
-function BottomMenu({ items }) {
-  const itemsArray = [...items];
-  return /* @__PURE__ */ jsx6(BottomBox, { children: itemsArray.map((item, index) => /* @__PURE__ */ jsx6(Item, { href: item.link, className: "active", children: /* @__PURE__ */ jsxs5(ItemContent, { children: [
-    item.icon === "overview" ? /* @__PURE__ */ jsx6(LeaderboardRoundedIcon, { className: "icon" }) : item.icon === "profile" ? /* @__PURE__ */ jsx6(AccountBoxRoundedIcon, { className: "icon" }) : item.icon === "transactions" ? /* @__PURE__ */ jsx6(SyncAltRoundedIcon, { className: "icon" }) : item.icon === "settings" ? /* @__PURE__ */ jsx6(SettingsRoundedIcon, { className: "icon" }) : item.icon === "cards" ? /* @__PURE__ */ jsx6(CreditCardRoundedIcon, { className: "icon" }) : item.icon === "bills" ? /* @__PURE__ */ jsx6(ReceiptLongRoundedIcon, { className: "icon" }) : item.icon === "apps" ? /* @__PURE__ */ jsx6(AppsRoundedIcon, { className: "icon" }) : item.icon === "pages" ? /* @__PURE__ */ jsx6(ArticleRoundedIcon, { className: "icon" }) : item.icon === "logout" ? /* @__PURE__ */ jsx6(ExitToAppRoundedIcon, { className: "icon" }) : item.icon === "goals" ? /* @__PURE__ */ jsx6(SavingsRoundedIcon, { className: "icon" }) : item.icon === "help" ? /* @__PURE__ */ jsx6(HelpOutlineRoundedIcon, { className: "icon" }) : null,
-    /* @__PURE__ */ jsx6("strong", { children: item.label })
-  ] }, `${item}${index}`) })) });
+function BottomMenu({ appsLink, settingsLink, overviewLink, profileLink, active }) {
+  return /* @__PURE__ */ jsxs5(BottomBox, { children: [
+    /* @__PURE__ */ jsx6(Item, { href: profileLink, children: /* @__PURE__ */ jsx6(ItemContent, { children: /* @__PURE__ */ jsx6(PersonRoundedIcon, { className: active == "profile" ? "active" : "" }) }) }),
+    /* @__PURE__ */ jsx6(Item, { href: appsLink, children: /* @__PURE__ */ jsx6(ItemContent, { children: /* @__PURE__ */ jsx6(LeaderboardRoundedIcon, { className: active == "overview" ? "active" : "" }) }) }),
+    /* @__PURE__ */ jsx6(Item, { href: overviewLink, children: /* @__PURE__ */ jsx6(ItemContent, { children: /* @__PURE__ */ jsx6(AppsRoundedIcon, { className: active == "apps" ? "active" : "" }) }) }),
+    /* @__PURE__ */ jsx6(Item, { href: settingsLink, children: /* @__PURE__ */ jsx6(ItemContent, { children: /* @__PURE__ */ jsx6(SettingsRoundedIcon, { className: active == "settings" ? "active" : "" }) }) })
+  ] });
 }
 BottomMenu.displayName = "BottomMenu";
 
@@ -909,30 +900,31 @@ function ComponentsHeader({ title, pageLink, labelLink }) {
 // src/components/Dropdown/styles.ts
 var DropdownBox = styled("div", {
   position: "relative",
-  display: "inline-block"
+  display: "inline-block",
+  fontFamily: "$default"
 });
 var DropdownButton2 = styled("button", {
   display: "block",
   backgroundColor: "$red400",
-  color: "$white",
+  color: "$gray100",
   fontSize: "$xs",
   borderRadius: "$md",
   padding: "$4",
   cursor: "pointer",
   fontWeight: "$bold",
-  border: "none"
+  border: "none",
+  fontFamily: "$default"
 });
 var DropdownContent2 = styled("div", {
   display: "flex",
   flexDirection: "column",
   position: "absolute",
   textAlign: "center",
-  backgroundColor: "$gray400",
-  borderRadius: "$4",
+  backgroundColor: "$gray300",
+  borderRadius: "$md",
   padding: "$1 $2",
   zIndex: 1,
   boxShadow: "0px $2 $4 0px rgba(0,0,0,0.2)",
-  fontFamily: "$default",
   fontSize: "$xs",
   "a": {
     display: "block",
@@ -1257,7 +1249,7 @@ var IconBox = styled("div", {
 
 // src/components/MonthlyGoals/index.tsx
 import PixRoundedIcon from "@mui/icons-material/PixRounded";
-import CreditCardRoundedIcon2 from "@mui/icons-material/CreditCardRounded";
+import CreditCardRoundedIcon from "@mui/icons-material/CreditCardRounded";
 import AttachMoneyRoundedIcon from "@mui/icons-material/AttachMoneyRounded";
 import ShoppingBasketRoundedIcon from "@mui/icons-material/ShoppingBasketRounded";
 import AccountBalanceRoundedIcon from "@mui/icons-material/AccountBalanceRounded";
@@ -1265,7 +1257,7 @@ import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import { jsx as jsx13, jsxs as jsxs12 } from "react/jsx-runtime";
 function MonthlyBills({ categoryIcon, description, pageToPay, price }) {
   return /* @__PURE__ */ jsxs12(Bill, { children: [
-    /* @__PURE__ */ jsx13("div", { className: "wrapper", children: /* @__PURE__ */ jsx13(IconBox, { children: categoryIcon === "pix" ? /* @__PURE__ */ jsx13(PixRoundedIcon, {}) : categoryIcon === "credit-card" ? /* @__PURE__ */ jsx13(CreditCardRoundedIcon2, {}) : categoryIcon === "transfer" ? /* @__PURE__ */ jsx13(AttachMoneyRoundedIcon, {}) : categoryIcon === "shopping" ? /* @__PURE__ */ jsx13(ShoppingBasketRoundedIcon, {}) : categoryIcon === "loan" ? /* @__PURE__ */ jsx13(AccountBalanceRoundedIcon, {}) : categoryIcon === "rent" ? /* @__PURE__ */ jsx13(HomeRoundedIcon, {}) : null }) }),
+    /* @__PURE__ */ jsx13("div", { className: "wrapper", children: /* @__PURE__ */ jsx13(IconBox, { children: categoryIcon === "pix" ? /* @__PURE__ */ jsx13(PixRoundedIcon, {}) : categoryIcon === "credit-card" ? /* @__PURE__ */ jsx13(CreditCardRoundedIcon, {}) : categoryIcon === "transfer" ? /* @__PURE__ */ jsx13(AttachMoneyRoundedIcon, {}) : categoryIcon === "shopping" ? /* @__PURE__ */ jsx13(ShoppingBasketRoundedIcon, {}) : categoryIcon === "loan" ? /* @__PURE__ */ jsx13(AccountBalanceRoundedIcon, {}) : categoryIcon === "rent" ? /* @__PURE__ */ jsx13(HomeRoundedIcon, {}) : null }) }),
     /* @__PURE__ */ jsx13("div", { className: "price", children: price.toLocaleString("pt-BR", { style: "currency", currency: "BRL" }) }),
     /* @__PURE__ */ jsx13("p", { children: description }),
     /* @__PURE__ */ jsx13("a", { href: pageToPay, className: "btn", children: "PAY NOW" })

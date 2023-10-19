@@ -3,46 +3,42 @@ import { styled } from '../../styles'
 export const BottomBox = styled('div', {
   minHeight: '$12',
   position: 'fixed',
-  width: '100%',
-  bottom: 0,
-  left: -10,
+  width: '70%',
+  bottom: 10,
+  left: '15%',
+  boxShadow: '0px $2 $4 0px rgba(0,0,0,0.2)',
   overflow: 'hidden',
-  background: '$gray300',
+  background: '$gray200',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  borderTop: '1px solid $gray400',
   padding: '0 $1',
+  borderRadius: '$full',
 })
 
 export const Item = styled('a', {
-  fontSize: '$2',
-  letterSpacing: 0,
-  textAlign: 'center',
   width: '80%',
   height: '$12',
-  lineHeight: '1.2em',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
   textDecoration: 'none',
-  color: '$gray700',
 })
 
 export const ItemContent = styled('div', {
-  width: '100%',
   padding: '$1',
-  alignItems: 'center',
-  fontFamily: '$default',
-  fontSize: '$xs',
+  fontSize: '$xxs',
+  display: 'flex',
+  margin: '1px auto $1 auto',
+  lineHeight: '$4',
+  color: '$red600',
+  paddinTop: '$4',
+  marginBottom: '$px',
 
-  '.icon': {
-    display: 'flex',
-    margin: '1px auto $1 auto',
-    fontSize: '$2xl',
-    lineHeight: '$4',
-    color: '$gray700',
-    paddinTop: '$4',
-    marginBottom: '$px',
+  '.active': {
+    borderRadius: '$full',
+    backgroundColor: '$red600',
+    color: '$white',
+    padding: '$2',
   }
 })

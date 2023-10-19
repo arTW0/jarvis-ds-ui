@@ -1994,13 +1994,13 @@ declare const BottomBox: _stitches_react_types_styled_component.StyledComponent<
 }, {}>>;
 
 interface BottomMenuProps extends ComponentProps<typeof BottomBox> {
-    items: {
-        icon: string;
-        label: string;
-        link: string;
-    }[];
+    profileLink: string;
+    overviewLink: string;
+    appsLink: string;
+    settingsLink: string;
+    active: string;
 }
-declare function BottomMenu({ items }: BottomMenuProps): react_jsx_runtime.JSX.Element;
+declare function BottomMenu({ appsLink, settingsLink, overviewLink, profileLink, active }: BottomMenuProps): react_jsx_runtime.JSX.Element;
 declare namespace BottomMenu {
     var displayName: string;
 }

@@ -1,6 +1,8 @@
 import { keyframes, styled } from '../../styles'
 
-export const ActionSheetContainer = styled('div', {})
+export const ActionSheetContainer = styled('div', {
+  fontFamily: '$default',
+})
 
 export const ActionButton = styled('button', {
   backgroundColor: '$red300',
@@ -31,7 +33,7 @@ const InactiveAnimation = keyframes({
     opacity: 1,
   },
   to: {
-    transform: 'translatey(100%)',
+    transform: 'translatey(110%)',
   }
 })
 
@@ -44,11 +46,10 @@ export const ActionSheetContent = styled('div', {
   alignItems: 'center',
   backgroundColor: '$gray300',
   width: '25vw',
-  borderRadius: '$4',
+  borderRadius: '$sm',
   zIndex: 1,
   padding: '$2 $1',
   animationFillMode: 'forwards',
-  fontFamily: '$default',
 
   'a': {
     color: '$black',
@@ -74,6 +75,6 @@ export const CancelButton = styled('button', {
   marginTop: '$2',
   border: 'none',
   backgroundColor: 'transparent',
-  fontFamily: '$default',
-  fontSize: '$md',
+  fontSize: '$sm',
+  cursor: 'pointer',
 })

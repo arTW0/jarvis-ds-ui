@@ -15,6 +15,7 @@ export const TextInputContainer = styled('div', {
 
   '&:has(input:disabled)': {
     opacity: 0.5,
+    backgroundColor: '$gray600',
     cursor: 'not-allowed',
   },
 })
