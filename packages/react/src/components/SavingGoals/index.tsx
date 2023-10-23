@@ -6,14 +6,15 @@ export interface SavingGoalsProps extends ComponentProps<typeof Goals> {
   category: string;
   amount: number;
   locked: number;
+  bgColor?: string;
 }
 
-export function SavingGoals({ goal, category, amount, locked }: SavingGoalsProps) {
+export function SavingGoals({ goal, category, amount, locked, bgColor = '$red600' }: SavingGoalsProps) {
   const percentage = (locked * 100) / amount
 
   return (
     <Goals>
-      <Item>
+      <Item css={{ backgroundColor: bgColor }}>
         <GoalContent>
           <div>
             <h4>{goal}</h4>

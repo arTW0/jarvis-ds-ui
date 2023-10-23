@@ -1,21 +1,26 @@
 import { ComponentProps } from 'react'
-import { ComponentHeader } from './styles'
+import { ComponentHeader, Link, Title } from './styles'
 
 export interface ComponentsHeaderProps extends ComponentProps<typeof ComponentHeader> {
-  title: string,
-  pageLink: string,
+  title: string
+  pageLink: string
   labelLink: string
+  titleColor?: string
+  linkColor?: string
 }
 
-export function ComponentsHeader({ title, pageLink, labelLink }: ComponentsHeaderProps) {
+export function ComponentsHeader({ title, pageLink, labelLink, titleColor = '$gray600', linkColor = '$red500' }: ComponentsHeaderProps) {
   return (
     <ComponentHeader>
-      <h2 className="title">
+      <Title css={{ color: titleColor }}>
         {title}
-      </h2>
-      <a href={pageLink} className="link">
+      </Title>
+      <Link
+        css={{ color: linkColor }}
+        href={pageLink}
+      >
         {labelLink}
-      </a>
+      </Link>
     </ComponentHeader>
   )
 } 

@@ -2307,8 +2307,9 @@ interface CardsProps extends ComponentProps<typeof CardBox> {
     linkEdit: string;
     linkUpdate: string;
     linkDelete: string;
+    cardColor?: string;
 }
-declare function Cards({ balanceValue, cardNumber, cvv, expiryDate, linkDelete, linkEdit, linkUpdate }: CardsProps): react_jsx_runtime.JSX.Element;
+declare function Cards({ balanceValue, cardNumber, cvv, expiryDate, linkDelete, linkEdit, linkUpdate, cardColor }: CardsProps): react_jsx_runtime.JSX.Element;
 
 declare const ComponentHeader: _stitches_react_types_styled_component.StyledComponent<"section", {}, {}, _stitches_react_types_css_util.CSS<{}, {
     colors: {
@@ -2536,8 +2537,10 @@ interface ComponentsHeaderProps extends ComponentProps<typeof ComponentHeader> {
     title: string;
     pageLink: string;
     labelLink: string;
+    titleColor?: string;
+    linkColor?: string;
 }
-declare function ComponentsHeader({ title, pageLink, labelLink }: ComponentsHeaderProps): react_jsx_runtime.JSX.Element;
+declare function ComponentsHeader({ title, pageLink, labelLink, titleColor, linkColor }: ComponentsHeaderProps): react_jsx_runtime.JSX.Element;
 
 interface DropdownProps {
     options: {
@@ -3021,8 +3024,11 @@ interface MonthlyBillsProps {
     price: number | number[];
     description: string | string[];
     pageToPay: string;
+    bgColor?: string;
+    buttonColor?: string;
+    labelButtonColor?: string;
 }
-declare function MonthlyBills({ categoryIcon, description, pageToPay, price }: MonthlyBillsProps): react_jsx_runtime.JSX.Element;
+declare function MonthlyBills({ categoryIcon, description, pageToPay, price, bgColor, buttonColor, labelButtonColor }: MonthlyBillsProps): react_jsx_runtime.JSX.Element;
 
 declare const Goals: _stitches_react_types_styled_component.StyledComponent<"div", {}, {}, _stitches_react_types_css_util.CSS<{}, {
     colors: {
@@ -3251,8 +3257,9 @@ interface SavingGoalsProps extends ComponentProps<typeof Goals> {
     category: string;
     amount: number;
     locked: number;
+    bgColor?: string;
 }
-declare function SavingGoals({ goal, category, amount, locked }: SavingGoalsProps): react_jsx_runtime.JSX.Element;
+declare function SavingGoals({ goal, category, amount, locked, bgColor }: SavingGoalsProps): react_jsx_runtime.JSX.Element;
 
 declare const StatBox: _stitches_react_types_styled_component.StyledComponent<"div", {}, {}, _stitches_react_types_css_util.CSS<{}, {
     colors: {
@@ -3480,8 +3487,10 @@ interface StatsProps extends ComponentProps<typeof StatBox> {
     title: string;
     value: number;
     typeValue: string;
+    bgColor?: string;
+    labelColor?: string;
 }
-declare function Stats({ title, value, typeValue }: StatsProps): react_jsx_runtime.JSX.Element;
+declare function Stats({ title, value, typeValue, bgColor, labelColor }: StatsProps): react_jsx_runtime.JSX.Element;
 
 declare const StatsBox: _stitches_react_types_styled_component.StyledComponent<"section", {}, {}, _stitches_react_types_css_util.CSS<{}, {
     colors: {
@@ -3936,8 +3945,10 @@ interface TransactionsProps extends ComponentProps<typeof TransactionsBox> {
     amount: number;
     type: string;
     key: string;
+    bgColor?: string;
+    labelColor?: string;
 }
-declare function Transactions({ title, amount, category, key, type }: TransactionsProps): react_jsx_runtime.JSX.Element;
+declare function Transactions({ title, amount, category, key, type, bgColor, labelColor }: TransactionsProps): react_jsx_runtime.JSX.Element;
 
 declare const Wallet: _stitches_react_types_styled_component.StyledComponent<"div", {}, {}, _stitches_react_types_css_util.CSS<{}, {
     colors: {
@@ -4164,7 +4175,9 @@ declare const Wallet: _stitches_react_types_styled_component.StyledComponent<"di
 interface WalletProps extends ComponentProps<typeof Wallet> {
     totalBalance: number;
     addFoundsLink: string;
+    bgColor?: string;
+    labelColor?: string;
 }
-declare function WalletComponent({ totalBalance, addFoundsLink }: WalletProps): react_jsx_runtime.JSX.Element;
+declare function WalletComponent({ totalBalance, addFoundsLink, bgColor, labelColor, }: WalletProps): react_jsx_runtime.JSX.Element;
 
 export { ActionSheet, ActionSheetProps, Avatar, AvatarProps, BottomMenu, BottomMenuProps, Box, BoxProps, Button, ButtonProps, Cards, CardsProps, Checkbox, CheckboxProps, ComponentsHeader, ComponentsHeaderProps, Dropdown, DropdownProps, Footer, FooterProps, HeaderComponent, HeaderProps, Heading, HeadingProps, Loader, LoaderProps, Modal, ModalProps, MonthlyBills, MonthlyBillsProps, MultiStep, MultiStepProps, SavingGoals, SavingGoalsProps, Stats, StatsBox, StatsBoxProps, StatsProps, Text, TextArea, TextAreaProps, TextInput, TextInputProps, TextProps, Transactions, TransactionsProps, WalletComponent, WalletProps };

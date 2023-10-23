@@ -30,9 +30,10 @@ export interface CardsProps extends ComponentProps<typeof CardBox> {
   linkEdit: string;
   linkUpdate: string;
   linkDelete: string;
+  cardColor?: string;
 }
 
-export function Cards({ balanceValue, cardNumber, cvv, expiryDate, linkDelete, linkEdit, linkUpdate }: CardsProps) {
+export function Cards({ balanceValue, cardNumber, cvv, expiryDate, linkDelete, linkEdit, linkUpdate, cardColor = '$red400' }: CardsProps) {
   const [open, setOpen] = useState(false);
 
   const handleDropdownOpen = () => {
@@ -41,7 +42,7 @@ export function Cards({ balanceValue, cardNumber, cvv, expiryDate, linkDelete, l
 
   return (
     <CardBox>
-      <CardBlock>
+      <CardBlock css={{ backgroundColor: cardColor }}>
         <CardMain>
           <CardButton>
             <Dropdown>
@@ -100,7 +101,7 @@ export function Cards({ balanceValue, cardNumber, cvv, expiryDate, linkDelete, l
           </div>
         </CardMain>
       </CardBlock>
-    </CardBox>
+    </CardBox >
   )
 }
 

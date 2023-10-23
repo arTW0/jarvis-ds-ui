@@ -5,16 +5,6 @@ export const StatBox = styled('div', {
   borderRadius: '$md',
   padding: '$5 $6',
   fontFamily: '$default',
-  backgroundColor: '$gray500',
-
-  '.title': {
-    fontSize: '$xs',
-    color: '$gray100',
-    fontWeight: '$medium',
-    display: 'block',
-    marginBottom: '$2',
-    lineHeight: '$short',
-  },
 
   '.value': {
     fontSize: '$xl',
@@ -30,4 +20,12 @@ export const StatBox = styled('div', {
   '.text-danger': {
     color: '$red400',
   }
+})
+
+export const Title = styled('div', {
+  fontSize: '$xs',
+  fontWeight: '$medium',
+  display: 'block',
+  marginBottom: '$2',
+  lineHeight: '$short',
 })

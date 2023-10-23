@@ -1,0 +1,24 @@
+
+> @jarvis-ui/packages@1.1.0 build-storybook
+> storybook build --output-dir /tmp/chromatic--2849-gRm7KopMxFbf
+
+@storybook/cli v7.4.6
+
+info => Cleaning outputDir: /tmp/chromatic--2849-gRm7KopMxFbf
+Error: No configuration files have been found in your configDir (./.storybook).
+Storybook needs "main.js" file, please add it (or pass a custom config dir flag to Storybook to tell where your main.js file is located at).
+    at validateConfigurationFiles (./node_modules/@storybook/core-common/dist/index.js:9:30)
+    at async loadMainConfig (./node_modules/@storybook/core-common/dist/index.js:19:6698)
+    at async buildStaticStandalone (./node_modules/@storybook/core-server/dist/index.js:97:866)
+    at async withTelemetry (./node_modules/@storybook/core-server/dist/index.js:101:4155)
+    at async build (./node_modules/@storybook/cli/dist/generate.js:473:1059)
+    at async Command.<anonymous> (./node_modules/@storybook/cli/dist/generate.js:476:125)
+/root/projetos/credfranco/ds-jsrvis/packages/node_modules/@storybook/cli/bin/index.js:23
+  throw error;
+  ^
+
+Error: No configuration files have been found in your configDir (/root/projetos/credfranco/ds-jsrvis/packages/.storybook).
+Storybook needs "main.js" file, please add it (or pass a custom config dir flag to Storybook to tell where your main.js file is located at).
+    at validateConfigurationFiles (/root/projetos/credfranco/ds-jsrvis/packages/node_modules/@storybook/core-common/dist/index.js:9:30)
+
+Node.js v20.5.1

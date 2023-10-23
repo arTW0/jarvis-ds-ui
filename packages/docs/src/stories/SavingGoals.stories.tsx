@@ -9,7 +9,14 @@ export default {
     category: 'living',
     amount: 10000,
     locked: 5000,
+    bgColor: '$red600'
   },
 } as Meta<SavingGoalsProps>
 
 export const Primary: StoryObj<SavingGoalsProps> = {}
+
+export const DarkMode: StoryObj<SavingGoalsProps> = {
+  args: {
+    bgColor: '$gray700'
+  }
+}

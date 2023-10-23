@@ -1,4 +1,4 @@
-import { Bill, IconBox } from './styles'
+import { Bill, Pay, IconBox } from './styles'
 
 import PixRoundedIcon from '@mui/icons-material/PixRounded';
 import CreditCardRoundedIcon from '@mui/icons-material/CreditCardRounded';
@@ -12,11 +12,14 @@ export interface MonthlyBillsProps {
   price: number | number[];
   description: string | string[];
   pageToPay: string;
+  bgColor?: string;
+  buttonColor?: string;
+  labelButtonColor?: string;
 }
 
-export function MonthlyBills({ categoryIcon, description, pageToPay, price }: MonthlyBillsProps) {
+export function MonthlyBills({ categoryIcon, description, pageToPay, price, bgColor = '$red600', buttonColor = '$gray200', labelButtonColor = '$gray600' }: MonthlyBillsProps) {
   return (
-    <Bill>
+    <Bill css={{ backgroundColor: bgColor }}>
       <div className="wrapper">
         <IconBox>
           {categoryIcon === "pix" ? <PixRoundedIcon />
@@ -33,7 +36,15 @@ export function MonthlyBills({ categoryIcon, description, pageToPay, price }: Mo
         {price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
       </div>
       <p>{description}</p>
-      <a href={pageToPay} className="btn">PAY NOW</a>
+      <Pay
+        css={{
+          color: labelButtonColor,
+          backgroundColor: buttonColor
+        }}
+        href={pageToPay}
+      >
+        PAY NOW
+      </Pay>
     </Bill>
   )
 }

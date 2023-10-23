@@ -9,22 +9,20 @@ export const ComponentHeader = styled('section', {
   padding: '0 $4',
   fontFamily: '$default',
   fontWeight: '$medium',
+})
 
-  '.title': {
-    margin: 0,
-    fontSize: '$xl',
-    letterSpacing: '-0.01em',
-    lineHeight: '$short',
-    paddingRight: '$4',
-    fontWeight: '$bold',
-    color: '$gray500'
-  },
+export const Title = styled('h2', {
+  margin: 0,
+  fontSize: '$xl',
+  letterSpacing: '-0.01em',
+  lineHeight: '$short',
+  paddingRight: '$4',
+  fontWeight: '$bold',
+})
 
-  '.link': {
-    color: '$red500',
-    fontSize: '$sm',
-    fontWeight: '$medium',
-    textDecoration: 'none',
-  }
+export const Link = styled('a', {
+  fontSize: '$sm',
+  fontWeight: '$medium',
+  textDecoration: 'none',
 })
 

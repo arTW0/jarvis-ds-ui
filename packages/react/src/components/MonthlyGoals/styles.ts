@@ -1,7 +1,6 @@
 import { styled } from "../../styles";
 
 export const Bill = styled('div', {
-  background: '$red600',
   boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.09)',
   borderRadius: '$md',
   padding: '$5 $6',
@@ -24,34 +23,30 @@ export const Bill = styled('div', {
     marginBottom: '$3',
   },
 
-  '.btn': {
-    height: '$9',
-    padding: '$1 0',
-    fontSize: '$xs',
-    lineHeight: '$shorter',
-    fontWeight: 500,
-    boxShadow: 'none !important',
-    display: 'inline-flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    transition: '0.2s all',
-    textDecoration: 'none !important',
-    borderRadius: '$md',
-    borderWidth: '$px',
-
-    background: '$red200 !important',
-    borderColor: '$red300 !important',
-    color: '$gray500',
-
-    width: '100%',
-  },
-
   'p': {
     fontSize: '$xs',
     lineHeight: '$short',
     height: '$9',
     margin: '0 0 $3 0',
   }
+})
+
+export const Pay = styled('a', {
+  height: '$9',
+  padding: '$1 0',
+  fontSize: '$xs',
+  lineHeight: '$shorter',
+  fontWeight: 500,
+  boxShadow: 'none !important',
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  transition: '0.2s all',
+  textDecoration: 'none !important',
+  borderRadius: '$md',
+  borderWidth: '$px',
+  borderColor: '$gray100 !important',
+  width: '100%',
 })
 
 export const IconBox = styled('div', {

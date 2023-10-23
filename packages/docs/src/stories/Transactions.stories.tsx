@@ -21,3 +21,10 @@ export default {
 } as Meta<TransactionsProps>
 
 export const Primary: StoryObj<TransactionsProps> = {}
+
+export const Alternative: StoryObj<TransactionsProps> = {
+  args: {
+    bgColor: '$gray200',
+    labelColor: '$gray500',
+  },
+}

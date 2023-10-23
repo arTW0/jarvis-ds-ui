@@ -12,6 +12,7 @@ export default {
     linkDelete: '#',
     linkEdit: '#',
     linkUpdate: '#',
+    cardColor: '$red400'
   },
   decorators: [
     (Story) => {
@@ -24,6 +25,10 @@ export default {
   ]
 } as Meta<CardsProps>
 
-export const Primary: StoryObj<CardsProps> = {
-  args: {},
+export const Primary: StoryObj<CardsProps> = {}
+
+export const DarkMode: StoryObj<CardsProps> = {
+  args: {
+    cardColor: '$gray700'
+  }
 }

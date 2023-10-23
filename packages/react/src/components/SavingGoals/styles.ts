@@ -6,7 +6,6 @@ export const Goals = styled('div', {
 })
 
 export const Item = styled('div', {
-  background: '$red600',
   boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.09)',
   borderRadius: '$md',
   padding: '$5 $6',

@@ -11,7 +11,6 @@ export const Balance = styled('div', {
   width: '$64',
   alignItems: 'center',
   justifyContent: 'space-between',
-  background: '$red600',
   boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.09)',
   borderRadius: '$md',
   padding: '$4 $5',
@@ -21,7 +20,6 @@ export const Title = styled('span', {
   fontWeight: '$medium',
   display: 'block',
   marginBottom: '$1',
-  color: '$gray100'
 })
 
 export const Total = styled('h1', {

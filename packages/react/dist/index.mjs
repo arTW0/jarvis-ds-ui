@@ -163,7 +163,6 @@ var Text = styled("p", {
   fontFamily: "$default",
   lineHeight: "$base",
   margin: 0,
-  color: "$gray100",
   variants: {
     size: {
       xxs: { fontSize: "$xxs" },
@@ -701,7 +700,6 @@ var CardBlock = styled("div", {
   height: "220px",
   width: "$80",
   borderRadius: "10px",
-  background: "$red400",
   boxShadow: "0 $px $xs 0 rgba(0, 0, 0, 0.09)",
   color: "$gray500",
   position: "relative"
@@ -812,12 +810,12 @@ var DropdownContent = styled("button", {
 
 // src/components/Cards/index.tsx
 import { jsx as jsx7, jsxs as jsxs6 } from "react/jsx-runtime";
-function Cards({ balanceValue, cardNumber, cvv, expiryDate, linkDelete, linkEdit, linkUpdate }) {
+function Cards({ balanceValue, cardNumber, cvv, expiryDate, linkDelete, linkEdit, linkUpdate, cardColor = "$red400" }) {
   const [open, setOpen] = useState2(false);
   const handleDropdownOpen = () => {
     setOpen(!open);
   };
-  return /* @__PURE__ */ jsx7(CardBox, { children: /* @__PURE__ */ jsx7(CardBlock, { children: /* @__PURE__ */ jsxs6(CardMain, { children: [
+  return /* @__PURE__ */ jsx7(CardBox, { children: /* @__PURE__ */ jsx7(CardBlock, { css: { backgroundColor: cardColor }, children: /* @__PURE__ */ jsxs6(CardMain, { children: [
     /* @__PURE__ */ jsx7(CardButton, { children: /* @__PURE__ */ jsxs6(Dropdown, { children: [
       /* @__PURE__ */ jsx7(
         DropdownButton,
@@ -878,30 +876,35 @@ var ComponentHeader = styled("section", {
   marginBottom: "$4",
   padding: "0 $4",
   fontFamily: "$default",
+  fontWeight: "$medium"
+});
+var Title2 = styled("h2", {
+  margin: 0,
+  fontSize: "$xl",
+  letterSpacing: "-0.01em",
+  lineHeight: "$short",
+  paddingRight: "$4",
+  fontWeight: "$bold"
+});
+var Link = styled("a", {
+  fontSize: "$sm",
   fontWeight: "$medium",
-  ".title": {
-    margin: 0,
-    fontSize: "$xl",
-    letterSpacing: "-0.01em",
-    lineHeight: "$short",
-    paddingRight: "$4",
-    fontWeight: "$bold",
-    color: "$gray500"
-  },
-  ".link": {
-    color: "$red500",
-    fontSize: "$sm",
-    fontWeight: "$medium",
-    textDecoration: "none"
-  }
+  textDecoration: "none"
 });
 
 // src/components/ComponentsHeader/index.tsx
 import { jsx as jsx8, jsxs as jsxs7 } from "react/jsx-runtime";
-function ComponentsHeader({ title, pageLink, labelLink }) {
+function ComponentsHeader({ title, pageLink, labelLink, titleColor = "$gray600", linkColor = "$red500" }) {
   return /* @__PURE__ */ jsxs7(ComponentHeader, { children: [
-    /* @__PURE__ */ jsx8("h2", { className: "title", children: title }),
-    /* @__PURE__ */ jsx8("a", { href: pageLink, className: "link", children: labelLink })
+    /* @__PURE__ */ jsx8(Title2, { css: { color: titleColor }, children: title }),
+    /* @__PURE__ */ jsx8(
+      Link,
+      {
+        css: { color: linkColor },
+        href: pageLink,
+        children: labelLink
+      }
+    )
   ] });
 }
 
@@ -1196,7 +1199,6 @@ function Loader({ logo }) {
 
 // src/components/MonthlyGoals/styles.ts
 var Bill = styled("div", {
-  background: "$red600",
   boxShadow: "0 1px 3px 0 rgba(0, 0, 0, 0.09)",
   borderRadius: "$md",
   padding: "$5 $6",
@@ -1216,31 +1218,29 @@ var Bill = styled("div", {
     lineHeight: "$shorter",
     marginBottom: "$3"
   },
-  ".btn": {
-    height: "$9",
-    padding: "$1 0",
-    fontSize: "$xs",
-    lineHeight: "$shorter",
-    fontWeight: 500,
-    boxShadow: "none !important",
-    display: "inline-flex",
-    alignItems: "center",
-    justifyContent: "center",
-    transition: "0.2s all",
-    textDecoration: "none !important",
-    borderRadius: "$md",
-    borderWidth: "$px",
-    background: "$red200 !important",
-    borderColor: "$red300 !important",
-    color: "$gray500",
-    width: "100%"
-  },
   "p": {
     fontSize: "$xs",
     lineHeight: "$short",
     height: "$9",
     margin: "0 0 $3 0"
   }
+});
+var Pay = styled("a", {
+  height: "$9",
+  padding: "$1 0",
+  fontSize: "$xs",
+  lineHeight: "$shorter",
+  fontWeight: 500,
+  boxShadow: "none !important",
+  display: "inline-flex",
+  alignItems: "center",
+  justifyContent: "center",
+  transition: "0.2s all",
+  textDecoration: "none !important",
+  borderRadius: "$md",
+  borderWidth: "$px",
+  borderColor: "$gray100 !important",
+  width: "100%"
 });
 var IconBox = styled("div", {
   width: "$12",
@@ -1263,12 +1263,22 @@ import ShoppingBasketRoundedIcon from "@mui/icons-material/ShoppingBasketRounded
 import AccountBalanceRoundedIcon from "@mui/icons-material/AccountBalanceRounded";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import { jsx as jsx13, jsxs as jsxs12 } from "react/jsx-runtime";
-function MonthlyBills({ categoryIcon, description, pageToPay, price }) {
-  return /* @__PURE__ */ jsxs12(Bill, { children: [
+function MonthlyBills({ categoryIcon, description, pageToPay, price, bgColor = "$red600", buttonColor = "$gray200", labelButtonColor = "$gray600" }) {
+  return /* @__PURE__ */ jsxs12(Bill, { css: { backgroundColor: bgColor }, children: [
     /* @__PURE__ */ jsx13("div", { className: "wrapper", children: /* @__PURE__ */ jsx13(IconBox, { children: categoryIcon === "pix" ? /* @__PURE__ */ jsx13(PixRoundedIcon, {}) : categoryIcon === "credit-card" ? /* @__PURE__ */ jsx13(CreditCardRoundedIcon, {}) : categoryIcon === "transfer" ? /* @__PURE__ */ jsx13(AttachMoneyRoundedIcon, {}) : categoryIcon === "shopping" ? /* @__PURE__ */ jsx13(ShoppingBasketRoundedIcon, {}) : categoryIcon === "loan" ? /* @__PURE__ */ jsx13(AccountBalanceRoundedIcon, {}) : categoryIcon === "rent" ? /* @__PURE__ */ jsx13(HomeRoundedIcon, {}) : null }) }),
     /* @__PURE__ */ jsx13("div", { className: "price", children: price.toLocaleString("pt-BR", { style: "currency", currency: "BRL" }) }),
     /* @__PURE__ */ jsx13("p", { children: description }),
-    /* @__PURE__ */ jsx13("a", { href: pageToPay, className: "btn", children: "PAY NOW" })
+    /* @__PURE__ */ jsx13(
+      Pay,
+      {
+        css: {
+          color: labelButtonColor,
+          backgroundColor: buttonColor
+        },
+        href: pageToPay,
+        children: "PAY NOW"
+      }
+    )
   ] });
 }
 
@@ -1278,7 +1288,6 @@ var Goals = styled("div", {
   fontFamily: "$default"
 });
 var Item2 = styled("div", {
-  background: "$red600",
   boxShadow: "0 1px 3px 0 rgba(0, 0, 0, 0.09)",
   borderRadius: "$md",
   padding: "$5 $6",
@@ -1328,9 +1337,9 @@ var ProgressBar = styled("progress", {
 
 // src/components/SavingGoals/index.tsx
 import { jsx as jsx14, jsxs as jsxs13 } from "react/jsx-runtime";
-function SavingGoals({ goal, category, amount, locked }) {
+function SavingGoals({ goal, category, amount, locked, bgColor = "$red600" }) {
   const percentage = locked * 100 / amount;
-  return /* @__PURE__ */ jsx14(Goals, { children: /* @__PURE__ */ jsxs13(Item2, { children: [
+  return /* @__PURE__ */ jsx14(Goals, { children: /* @__PURE__ */ jsxs13(Item2, { css: { backgroundColor: bgColor }, children: [
     /* @__PURE__ */ jsxs13(GoalContent, { children: [
       /* @__PURE__ */ jsxs13("div", { children: [
         /* @__PURE__ */ jsx14("h4", { children: goal }),
@@ -1357,15 +1366,6 @@ var StatBox = styled("div", {
   borderRadius: "$md",
   padding: "$5 $6",
   fontFamily: "$default",
-  backgroundColor: "$gray500",
-  ".title": {
-    fontSize: "$xs",
-    color: "$gray100",
-    fontWeight: "$medium",
-    display: "block",
-    marginBottom: "$2",
-    lineHeight: "$short"
-  },
   ".value": {
     fontSize: "$xl",
     fontWeight: "$bold",
@@ -1379,13 +1379,20 @@ var StatBox = styled("div", {
     color: "$red400"
   }
 });
+var Title3 = styled("div", {
+  fontSize: "$xs",
+  fontWeight: "$medium",
+  display: "block",
+  marginBottom: "$2",
+  lineHeight: "$short"
+});
 
 // src/components/Stats/index.tsx
 import { jsx as jsx15, jsxs as jsxs14 } from "react/jsx-runtime";
-function Stats({ title, value, typeValue }) {
+function Stats({ title, value, typeValue, bgColor = "$gray500", labelColor = "$gray100" }) {
   const color = typeValue === "positive" ? "text-success" : typeValue === "negative" ? "text-danger" : null;
-  return /* @__PURE__ */ jsxs14(StatBox, { children: [
-    /* @__PURE__ */ jsx15("div", { className: "title", children: title }),
+  return /* @__PURE__ */ jsxs14(StatBox, { css: { backgroundColor: bgColor }, children: [
+    /* @__PURE__ */ jsx15(Title3, { css: { color: labelColor }, children: title }),
     /* @__PURE__ */ jsx15("div", { className: `value ${color}`, children: value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" }) })
   ] });
 }
@@ -1406,7 +1413,6 @@ var TransactionsBox = styled("section", {
   fontFamily: "$default"
 });
 var Transaction = styled("a", {
-  background: "$gray500",
   boxShadow: "0 $px $1 0 rgba(0, 0, 0, 0.09)",
   borderRadius: "$md",
   padding: "$5 $6",
@@ -1428,30 +1434,36 @@ var BoxRight = styled("div", {
   paddingLeft: "$2"
 });
 var Details = styled("div", {
-  color: "$gray100",
   fontSize: "$lg",
   "p": {
-    fontSize: "$sm",
-    color: "$gray300"
+    opacity: 0.7,
+    fontSize: "$sm"
   }
 });
 
 // src/components/Transactions/index.tsx
 import { jsx as jsx16, jsxs as jsxs15 } from "react/jsx-runtime";
-function Transactions({ title, amount, category, key, type }) {
-  return /* @__PURE__ */ jsx16(TransactionsBox, { children: /* @__PURE__ */ jsxs15(Transaction, { href: "#", children: [
-    /* @__PURE__ */ jsxs15(Details, { children: [
-      /* @__PURE__ */ jsx16("strong", { children: title }),
-      /* @__PURE__ */ jsx16("p", { children: category })
-    ] }),
-    /* @__PURE__ */ jsx16(BoxRight, { children: /* @__PURE__ */ jsx16(
-      "div",
-      {
-        className: type === "deposit" ? "price" : "price text-danger",
-        children: type === "deposit" ? amount.toLocaleString("pt-BR", { style: "currency", currency: "BRL" }) : `- ${amount.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}`
-      }
-    ) })
-  ] }) }, key);
+function Transactions({ title, amount, category, key, type, bgColor = "$gray500", labelColor = "$gray100" }) {
+  return /* @__PURE__ */ jsx16(TransactionsBox, { children: /* @__PURE__ */ jsxs15(
+    Transaction,
+    {
+      href: "#",
+      css: { backgroundColor: bgColor },
+      children: [
+        /* @__PURE__ */ jsxs15(Details, { css: { color: labelColor }, children: [
+          /* @__PURE__ */ jsx16("strong", { children: title }),
+          /* @__PURE__ */ jsx16("p", { children: category })
+        ] }),
+        /* @__PURE__ */ jsx16(BoxRight, { children: /* @__PURE__ */ jsx16(
+          "div",
+          {
+            className: type === "deposit" ? "price" : "price text-danger",
+            children: type === "deposit" ? amount.toLocaleString("pt-BR", { style: "currency", currency: "BRL" }) : `- ${amount.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}`
+          }
+        ) })
+      ]
+    }
+  ) }, key);
 }
 
 // src/components/Wallet/index.tsx
@@ -1468,16 +1480,14 @@ var Balance = styled("div", {
   width: "$64",
   alignItems: "center",
   justifyContent: "space-between",
-  background: "$red600",
   boxShadow: "0 1px 3px 0 rgba(0, 0, 0, 0.09)",
   borderRadius: "$md",
   padding: "$4 $5"
 });
-var Title2 = styled("span", {
+var Title4 = styled("span", {
   fontWeight: "$medium",
   display: "block",
-  marginBottom: "$1",
-  color: "$gray100"
+  marginBottom: "$1"
 });
 var Total = styled("h1", {
   fontWeight: "$bold",
@@ -1496,10 +1506,10 @@ var BoxRight2 = styled("div", {
 
 // src/components/Wallet/index.tsx
 import { jsx as jsx17, jsxs as jsxs16 } from "react/jsx-runtime";
-function WalletComponent({ totalBalance, addFoundsLink }) {
-  return /* @__PURE__ */ jsx17(Wallet, { children: /* @__PURE__ */ jsxs16(Balance, { children: [
+function WalletComponent({ totalBalance, addFoundsLink, bgColor = "$red600", labelColor = "$gray100" }) {
+  return /* @__PURE__ */ jsx17(Wallet, { children: /* @__PURE__ */ jsxs16(Balance, { css: { backgroundColor: bgColor }, children: [
     /* @__PURE__ */ jsxs16(BoxLeft2, { children: [
-      /* @__PURE__ */ jsx17(Title2, { children: "Total Balance" }),
+      /* @__PURE__ */ jsx17(Title4, { css: { color: labelColor }, children: "Total Balance" }),
       /* @__PURE__ */ jsx17(Total, { children: totalBalance ? totalBalance.toLocaleString("pt-BR", { style: "currency", currency: "BRL" }) : null })
     ] }),
     /* @__PURE__ */ jsx17(BoxRight2, { children: /* @__PURE__ */ jsx17("a", { href: addFoundsLink, children: /* @__PURE__ */ jsx17(

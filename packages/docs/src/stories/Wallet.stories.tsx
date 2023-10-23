@@ -11,3 +11,10 @@ export default {
 } as Meta<WalletProps>
 
 export const Primary: StoryObj<WalletProps> = {}
+
+export const DarkMode: StoryObj<WalletProps> = {
+  args: {
+    bgColor: '$gray700',
+    labelColor: '$gray100',
+  },
+}

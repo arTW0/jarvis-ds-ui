@@ -8,6 +8,9 @@ export default {
     price: 100,
     description: 'Pix',
     categoryIcon: 'pix',
+    bgColor: '$red600',
+    buttonColor: '$gray200',
+    labelButtonColor: '$gray600',
   },
   argTypes: {
     categoryIcon: {
@@ -16,7 +19,15 @@ export default {
         type: 'inline-radio',
       },
     },
-  }
+  },
 } as Meta<MonthlyBillsProps>
 
 export const Primary: StoryObj<MonthlyBillsProps> = {}
+
+export const DarkMode: StoryObj<MonthlyBillsProps> = {
+  args: {
+    bgColor: '$gray600',
+    buttonColor: '$gray500',
+    labelButtonColor: '$gray200',
+  },
+}

@@ -6,7 +6,6 @@ export const TransactionsBox = styled('section', {
 })
 
 export const Transaction = styled('a', {
-  background: '$gray500',
   boxShadow: '0 $px $1 0 rgba(0, 0, 0, 0.09)',
   borderRadius: '$md',
   padding: '$5 $6',
@@ -32,11 +31,10 @@ export const BoxRight = styled('div', {
 })
 
 export const Details = styled('div', {
-  color: '$gray100',
   fontSize: '$lg',
 
   'p': {
+    opacity: 0.7,
     fontSize: '$sm',
-    color: '$gray300'
   }
 })

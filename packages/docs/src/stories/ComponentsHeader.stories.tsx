@@ -20,3 +20,10 @@ export default {
 
 
 export const Primary: StoryObj<ComponentsHeaderProps> = {}
+
+export const Alternative: StoryObj<ComponentsHeaderProps> = {
+  args: {
+    titleColor: '$red300',
+    linkColor: '$gray300',
+  },
+}

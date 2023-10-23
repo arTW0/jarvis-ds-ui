@@ -20,3 +20,10 @@ export default {
 } as Meta<StatsProps>
 
 export const Primary: StoryObj<StatsProps> = {}
+
+export const Alternative: StoryObj<StatsProps> = {
+  args: {
+    bgColor: '$gray200',
+    labelColor: '$gray600',
+  }
+}
