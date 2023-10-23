@@ -44,7 +44,7 @@ export const ActionSheetContent = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  backgroundColor: '$gray300',
+  backgroundColor: '$gray200',
   width: '25vw',
   borderRadius: '$sm',
   zIndex: 1,

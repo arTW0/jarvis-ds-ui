@@ -8,10 +8,10 @@ export default {
     labelButton: 'Open Action Sheet',
     children: (
       <>
-        <Box css={{ border: 'none', marginBottom: '0.25rem' }}>Option 1</Box>
-        <Box css={{ border: 'none', marginBottom: '0.25rem' }}>Option 2</Box>
-        <Box css={{ border: 'none', marginBottom: '0.25rem' }}>Option 3</Box>
-        <Box css={{ border: 'none', marginBottom: '0.25rem' }}>Option 4</Box>
+        <Box css={{ border: 'none', marginBottom: '0.25rem', color: '$gray100' }}>Option 1</Box>
+        <Box css={{ border: 'none', marginBottom: '0.25rem', color: '$gray100' }}>Option 2</Box>
+        <Box css={{ border: 'none', marginBottom: '0.25rem', color: '$gray100' }}>Option 3</Box>
+        <Box css={{ border: 'none', marginBottom: '0.25rem', color: '$gray100' }}>Option 4</Box>
       </>
     ),
   },

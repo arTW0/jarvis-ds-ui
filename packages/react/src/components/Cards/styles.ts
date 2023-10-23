@@ -44,13 +44,13 @@ export const Title = styled('h1', {
 export const CardLabel = styled('span', {
   fontSize: '$xs',
   letterSpacing: '$px',
-  opacity: 0.5,
+  opacity: 0.8,
   lineHeight: '$shorter',
   marginBottom: '$sm',
   textTransform: 'uppercase',
   display: 'block',
-  fontWeight: '$medium',
-  color: '$red200',
+  fontWeight: '$bold',
+  color: '$gray100',
 })
 
 export const CardNumber = styled('div', {

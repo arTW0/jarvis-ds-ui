@@ -24,7 +24,7 @@ export const DropdownContent = styled('div', {
   flexDirection: 'column',
   position: 'absolute',
   textAlign: 'center',
-  backgroundColor: '$gray300',
+  backgroundColor: '$gray200',
   borderRadius: '$md',
   padding: '$1 $2',
   zIndex: 1,
@@ -33,7 +33,7 @@ export const DropdownContent = styled('div', {
 
   'a': {
     display: 'block',
-    color: '$black',
+    color: '$gray600',
     padding: '$2 $5',
     textDecoration: 'none',
   }

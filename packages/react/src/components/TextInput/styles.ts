@@ -8,14 +8,14 @@ export const TextInputContainer = styled('div', {
   border: '2px solid $red600',
   display: 'flex',
   alignItems: 'baseline',
+  color: '$gray300',
 
   '&:has(input:focus)': {
     borderColor: '$red300',
   },
 
   '&:has(input:disabled)': {
-    opacity: 0.5,
-    backgroundColor: '$gray600',
+    backgroundColor: '$gray400',
     cursor: 'not-allowed',
   },
 })
