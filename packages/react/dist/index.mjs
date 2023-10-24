@@ -234,8 +234,6 @@ var AvatarFallback = styled(Avatar.Fallback, {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  backgroundColor: "$red200",
-  color: "$gray500",
   svg: {
     width: "$6",
     height: "$6"
@@ -247,7 +245,14 @@ import { jsx, jsxs } from "react/jsx-runtime";
 function Avatar2(props) {
   return /* @__PURE__ */ jsxs(AvatarContainer, { children: [
     /* @__PURE__ */ jsx(AvatarImage, __spreadValues({}, props)),
-    /* @__PURE__ */ jsx(AvatarFallback, { delayMs: 600, children: /* @__PURE__ */ jsx(User, {}) })
+    /* @__PURE__ */ jsx(
+      AvatarFallback,
+      {
+        css: { backgroundColor: props.bgColor, color: props.iconColor },
+        delayMs: 600,
+        children: /* @__PURE__ */ jsx(User, {})
+      }
+    )
   ] });
 }
 Avatar2.displayName = "Avatar";

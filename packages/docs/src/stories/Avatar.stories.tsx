@@ -7,6 +7,8 @@ export default {
   args: {
     src: 'https://github.com/arTW0.png',
     alt: 'Arthur Neves',
+    bgColor: '$gray700',
+    iconColor: '$gray200',
   },
   argTypes: {
     src: {

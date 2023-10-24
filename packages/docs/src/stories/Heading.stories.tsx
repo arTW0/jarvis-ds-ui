@@ -7,6 +7,9 @@ export default {
   args: {
     children: 'Custom title',
     size: 'md',
+    css: {
+      color: '$green100',
+    }
   },
   argTypes: {
     size: {
