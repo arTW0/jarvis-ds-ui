@@ -1,0 +1,2 @@
+import{j as a,F as m}from"./jsx-runtime-a3f98963.js";import{F as c}from"./index-c418651f.js";import"./index-1e572255.js";import"./_commonjsHelpers-de833af9.js";const F={title:"Form/Footer",component:c,args:{as:"footer"},decorators:[s=>a(m,{children:s()})]},r={};var o,e,t;r.parameters={...r.parameters,docs:{...(o=r.parameters)==null?void 0:o.docs,source:{originalSource:"{}",...(t=(e=r.parameters)==null?void 0:e.docs)==null?void 0:t.source}}};const u=["Primary"];export{r as Primary,u as __namedExportsOrder,F as default};
+//# sourceMappingURL=Footer.stories-9410c24e.js.map
