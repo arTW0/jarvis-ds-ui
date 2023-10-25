@@ -1,6 +1,8 @@
-import ControlPointRoundedIcon from '@mui/icons-material/ControlPointRounded';
-import { Balance, BoxLeft, BoxRight, Title, Total, Wallet } from './styles'
-import { ComponentProps } from 'react';
+import { ComponentProps, useState } from 'react';
+
+import { Balance, BoxLeft, BoxRight, Title, Total, Wallet, ShowBalance } from './styles'
+
+import { EyeClosed, Eye } from 'phosphor-react';
 
 export interface WalletProps extends ComponentProps<typeof Wallet> {
   totalBalance: number
@@ -9,7 +11,10 @@ export interface WalletProps extends ComponentProps<typeof Wallet> {
   labelColor?: string;
 }
 
-export function WalletComponent({ totalBalance, addFoundsLink, bgColor = '$red600', labelColor = '$gray100', }: WalletProps) {
+export function WalletComponent({ totalBalance, bgColor = '$red600', labelColor = '$gray100', }: WalletProps) {
+
+  const [showBalance, setShowBalance] = useState(true);
+
   return (
     <Wallet>
       <Balance css={{ backgroundColor: bgColor }}>
@@ -18,21 +23,28 @@ export function WalletComponent({ totalBalance, addFoundsLink, bgColor = '$red60
             Total Balance
           </Title>
           <Total>
-            {totalBalance ?
-              totalBalance.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
-              : null}
+            {
+              showBalance ?
+                totalBalance ?
+                  totalBalance.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+                  : 'R$ 0,00'
+                : 'R$ •••••'
+            }
           </Total>
         </BoxLeft>
         <BoxRight>
-          <a href={addFoundsLink}>
-            <ControlPointRoundedIcon
-              sx={{
-                color: "white",
-                fontSize: "2.5rem",
-                marginTop: "1rem"
-              }}
-            />
-          </a>
+          <ShowBalance>
+            {
+              showBalance ?
+                <Eye
+                  onClick={() => setShowBalance(!showBalance)}
+                />
+                :
+                <EyeClosed
+                  onClick={() => setShowBalance(!showBalance)}
+                />
+            }
+          </ShowBalance>
         </BoxRight>
       </Balance>
     </Wallet>

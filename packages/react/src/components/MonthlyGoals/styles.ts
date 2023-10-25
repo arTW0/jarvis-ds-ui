@@ -60,4 +60,9 @@ export const IconBox = styled('div', {
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
+
+  svg: {
+    width: '$6',
+    height: '$6',
+  },
 })

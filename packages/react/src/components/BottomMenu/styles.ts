@@ -35,6 +35,11 @@ export const ItemContent = styled('div', {
   paddinTop: '$4',
   marginBottom: '$px',
 
+  svg: {
+    width: '$7',
+    height: '$7',
+  },
+
   '.active': {
     borderRadius: '$full',
     backgroundColor: '$red600',

@@ -1,9 +1,6 @@
-import MoreHorizRoundedIcon from '@mui/icons-material/MoreHorizRounded'
-import EditRoundedIcon from '@mui/icons-material/EditRounded'
-import UpgradeRoundedIcon from '@mui/icons-material/UpgradeRounded'
-import CreditCardOffRoundedIcon from '@mui/icons-material/CreditCardOffRounded'
-
 import { ComponentProps, useState } from 'react'
+
+import { DotsThreeOutline, PencilSimple, CaretDoubleUp, Trash } from 'phosphor-react'
 
 import {
   CardBalance,
@@ -49,23 +46,21 @@ export function Cards({ balanceValue, cardNumber, cvv, expiryDate, linkDelete, l
               <DropdownButton
                 onClick={handleDropdownOpen}
               >
-                <MoreHorizRoundedIcon
-                  sx={{ fontSize: "2rem" }}
-                />
+                <DotsThreeOutline />
               </DropdownButton>
 
               {open ?
                 <DropdownContent>
                   <div>
-                    <EditRoundedIcon className="icon" />
+                    <PencilSimple className="icon" />
                     <a href={linkEdit}>Editar</a>
                   </div>
                   <div>
-                    <UpgradeRoundedIcon className="icon" />
+                    <CaretDoubleUp className="icon" />
                     <a href={linkUpdate}>Atualizar</a>
                   </div>
                   <div>
-                    <CreditCardOffRoundedIcon className="icon" />
+                    <Trash className="icon" />
                     <a href={linkDelete}>Excluir</a>
                   </div>
                 </DropdownContent>

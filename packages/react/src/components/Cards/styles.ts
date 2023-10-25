@@ -99,6 +99,11 @@ export const DropdownButton = styled('button', {
   fontWeight: '$bold',
   backgroundColor: 'transparent',
   border: 'none',
+
+  svg: {
+    width: '$6',
+    height: '$6',
+  },
 })
 
 export const DropdownContent = styled('button', {
@@ -106,15 +111,15 @@ export const DropdownContent = styled('button', {
   left: '-10px',
   minWidth: '$18',
   marginLeft: '-70px',
-  background: '$red500',
-  borderRadius: '$4',
-  boxShadow: '0 $1 $8 rgba(0, 0, 0, 0.1)',
-  backdropFilter: 'blur(5.9px)',
+  background: '$red100',
+  borderRadius: '$lg',
+  boxShadow: '0 $1 $8 rgba(0, 0, 0, 0.6)',
+  backdropFilter: 'blur(6.3px)',
   WebkitBackdropFilter: 'blur(5.9px)',
   border: '$px solid rgba(255, 255, 255, 0.3)',
 
   'a': {
-    color: '$white',
+    color: '$gray600',
     padding: '$3 $4',
     textDecoration: 'none',
     display: 'block',
@@ -125,7 +130,7 @@ export const DropdownContent = styled('button', {
     alignItems: 'center',
 
     '.icon': {
-      color: '$white',
+      color: '$gray600',
       marginLeft: '$2',
       fontSize: '$2xl',
     }

@@ -4180,6 +4180,6 @@ interface WalletProps extends ComponentProps<typeof Wallet> {
     bgColor?: string;
     labelColor?: string;
 }
-declare function WalletComponent({ totalBalance, addFoundsLink, bgColor, labelColor, }: WalletProps): react_jsx_runtime.JSX.Element;
+declare function WalletComponent({ totalBalance, bgColor, labelColor, }: WalletProps): react_jsx_runtime.JSX.Element;
 
 export { ActionSheet, ActionSheetProps, Avatar, AvatarProps, BottomMenu, BottomMenuProps, Box, BoxProps, Button, ButtonProps, Cards, CardsProps, Checkbox, CheckboxProps, ComponentsHeader, ComponentsHeaderProps, Dropdown, DropdownProps, Footer, FooterProps, HeaderComponent, HeaderProps, Heading, HeadingProps, Loader, LoaderProps, Modal, ModalProps, MonthlyBills, MonthlyBillsProps, MultiStep, MultiStepProps, SavingGoals, SavingGoalsProps, Stats, StatsBox, StatsBoxProps, StatsProps, Text, TextArea, TextAreaProps, TextInput, TextInputProps, TextProps, Transactions, TransactionsProps, WalletComponent, WalletProps };

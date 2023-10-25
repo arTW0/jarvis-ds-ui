@@ -687,10 +687,7 @@ function ActionSheet({ labelButton, children }) {
 ActionSheet.displayName = "ActionSheet";
 
 // src/components/BottomMenu/index.tsx
-var import_LeaderboardRounded = __toESM(require("@mui/icons-material/LeaderboardRounded"));
-var import_PersonRounded = __toESM(require("@mui/icons-material/PersonRounded"));
-var import_AppsRounded = __toESM(require("@mui/icons-material/AppsRounded"));
-var import_SettingsRounded = __toESM(require("@mui/icons-material/SettingsRounded"));
+var import_phosphor_react3 = require("phosphor-react");
 
 // src/components/BottomMenu/styles.ts
 var BottomBox = styled("div", {
@@ -725,6 +722,10 @@ var ItemContent = styled("div", {
   color: "$red600",
   paddinTop: "$4",
   marginBottom: "$px",
+  svg: {
+    width: "$7",
+    height: "$7"
+  },
   ".active": {
     borderRadius: "$full",
     backgroundColor: "$red600",
@@ -737,20 +738,17 @@ var ItemContent = styled("div", {
 var import_jsx_runtime6 = require("react/jsx-runtime");
 function BottomMenu({ appsLink, settingsLink, overviewLink, profileLink, active }) {
   return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(BottomBox, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Item, { href: profileLink, children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(ItemContent, { children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_PersonRounded.default, { className: active == "profile" ? "active" : "" }) }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Item, { href: appsLink, children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(ItemContent, { children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_LeaderboardRounded.default, { className: active == "overview" ? "active" : "" }) }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Item, { href: overviewLink, children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(ItemContent, { children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_AppsRounded.default, { className: active == "apps" ? "active" : "" }) }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Item, { href: settingsLink, children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(ItemContent, { children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_SettingsRounded.default, { className: active == "settings" ? "active" : "" }) }) })
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Item, { href: profileLink, children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(ItemContent, { children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_phosphor_react3.UserCircle, { className: active == "profile" ? "active" : "" }) }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Item, { href: appsLink, children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(ItemContent, { children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_phosphor_react3.ChartBar, { className: active == "overview" ? "active" : "" }) }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Item, { href: overviewLink, children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(ItemContent, { children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_phosphor_react3.SquaresFour, { className: active == "apps" ? "active" : "" }) }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Item, { href: settingsLink, children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(ItemContent, { children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_phosphor_react3.GearSix, { className: active == "settings" ? "active" : "" }) }) })
   ] });
 }
 BottomMenu.displayName = "BottomMenu";
 
 // src/components/Cards/index.tsx
-var import_MoreHorizRounded = __toESM(require("@mui/icons-material/MoreHorizRounded"));
-var import_EditRounded = __toESM(require("@mui/icons-material/EditRounded"));
-var import_UpgradeRounded = __toESM(require("@mui/icons-material/UpgradeRounded"));
-var import_CreditCardOffRounded = __toESM(require("@mui/icons-material/CreditCardOffRounded"));
 var import_react3 = require("react");
+var import_phosphor_react4 = require("phosphor-react");
 
 // src/components/Cards/styles.ts
 var CardBox = styled("section", {
@@ -839,21 +837,25 @@ var DropdownButton = styled("button", {
   cursor: "pointer",
   fontWeight: "$bold",
   backgroundColor: "transparent",
-  border: "none"
+  border: "none",
+  svg: {
+    width: "$6",
+    height: "$6"
+  }
 });
 var DropdownContent = styled("button", {
   position: "absolute",
   left: "-10px",
   minWidth: "$18",
   marginLeft: "-70px",
-  background: "$red500",
-  borderRadius: "$4",
-  boxShadow: "0 $1 $8 rgba(0, 0, 0, 0.1)",
-  backdropFilter: "blur(5.9px)",
+  background: "$red100",
+  borderRadius: "$lg",
+  boxShadow: "0 $1 $8 rgba(0, 0, 0, 0.6)",
+  backdropFilter: "blur(6.3px)",
   WebkitBackdropFilter: "blur(5.9px)",
   border: "$px solid rgba(255, 255, 255, 0.3)",
   "a": {
-    color: "$white",
+    color: "$gray600",
     padding: "$3 $4",
     textDecoration: "none",
     display: "block"
@@ -862,7 +864,7 @@ var DropdownContent = styled("button", {
     display: "flex",
     alignItems: "center",
     ".icon": {
-      color: "$white",
+      color: "$gray600",
       marginLeft: "$2",
       fontSize: "$2xl"
     }
@@ -882,25 +884,20 @@ function Cards({ balanceValue, cardNumber, cvv, expiryDate, linkDelete, linkEdit
         DropdownButton,
         {
           onClick: handleDropdownOpen,
-          children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
-            import_MoreHorizRounded.default,
-            {
-              sx: { fontSize: "2rem" }
-            }
-          )
+          children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_phosphor_react4.DotsThreeOutline, {})
         }
       ),
       open ? /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(DropdownContent, { children: [
         /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_EditRounded.default, { className: "icon" }),
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_phosphor_react4.PencilSimple, { className: "icon" }),
           /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("a", { href: linkEdit, children: "Editar" })
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_UpgradeRounded.default, { className: "icon" }),
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_phosphor_react4.CaretDoubleUp, { className: "icon" }),
           /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("a", { href: linkUpdate, children: "Atualizar" })
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_CreditCardOffRounded.default, { className: "icon" }),
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_phosphor_react4.Trash, { className: "icon" }),
           /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("a", { href: linkDelete, children: "Excluir" })
         ] })
       ] }) : null
@@ -1313,20 +1310,20 @@ var IconBox = styled("div", {
   fontSize: "$6",
   display: "inline-flex",
   alignItems: "center",
-  justifyContent: "center"
+  justifyContent: "center",
+  svg: {
+    width: "$6",
+    height: "$6"
+  }
 });
 
 // src/components/MonthlyGoals/index.tsx
 var import_PixRounded = __toESM(require("@mui/icons-material/PixRounded"));
-var import_CreditCardRounded = __toESM(require("@mui/icons-material/CreditCardRounded"));
-var import_AttachMoneyRounded = __toESM(require("@mui/icons-material/AttachMoneyRounded"));
-var import_ShoppingBasketRounded = __toESM(require("@mui/icons-material/ShoppingBasketRounded"));
-var import_AccountBalanceRounded = __toESM(require("@mui/icons-material/AccountBalanceRounded"));
-var import_HomeRounded = __toESM(require("@mui/icons-material/HomeRounded"));
+var import_phosphor_react5 = require("phosphor-react");
 var import_jsx_runtime14 = require("react/jsx-runtime");
 function MonthlyBills({ categoryIcon, description, pageToPay, price, bgColor = "$red600", buttonColor = "$gray200", labelButtonColor = "$gray600" }) {
   return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(Bill, { css: { backgroundColor: bgColor }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { className: "wrapper", children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(IconBox, { children: categoryIcon === "pix" ? /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(import_PixRounded.default, {}) : categoryIcon === "credit-card" ? /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(import_CreditCardRounded.default, {}) : categoryIcon === "transfer" ? /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(import_AttachMoneyRounded.default, {}) : categoryIcon === "shopping" ? /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(import_ShoppingBasketRounded.default, {}) : categoryIcon === "loan" ? /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(import_AccountBalanceRounded.default, {}) : categoryIcon === "rent" ? /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(import_HomeRounded.default, {}) : null }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { className: "wrapper", children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(IconBox, { children: categoryIcon === "pix" ? /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(import_PixRounded.default, {}) : categoryIcon === "credit-card" ? /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(import_phosphor_react5.CreditCard, {}) : categoryIcon === "transfer" ? /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(import_phosphor_react5.CurrencyDollar, {}) : categoryIcon === "shopping" ? /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(import_phosphor_react5.ShoppingCartSimple, {}) : categoryIcon === "loan" ? /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(import_phosphor_react5.Bank, {}) : categoryIcon === "rent" ? /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(import_phosphor_react5.House, {}) : null }) }),
     /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { className: "price", children: price.toLocaleString("pt-BR", { style: "currency", currency: "BRL" }) }),
     /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { children: description }),
     /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
@@ -1528,7 +1525,7 @@ function Transactions({ title, amount, category, key, type, bgColor = "$gray500"
 }
 
 // src/components/Wallet/index.tsx
-var import_ControlPointRounded = __toESM(require("@mui/icons-material/ControlPointRounded"));
+var import_react6 = require("react");
 
 // src/components/Wallet/styles.ts
 var Wallet = styled("div", {
@@ -1562,25 +1559,42 @@ var BoxLeft2 = styled("div", {
 });
 var BoxRight2 = styled("div", {
   padding: 0,
-  color: "$gray100"
+  background: "transparent"
+});
+var ShowBalance = styled("button", {
+  background: "transparent",
+  border: "none",
+  padding: 0,
+  marginTop: "$4",
+  cursor: "pointer",
+  display: "flex",
+  alignItems: "center",
+  color: "$gray100",
+  svg: {
+    width: "$8",
+    height: "$8"
+  }
 });
 
 // src/components/Wallet/index.tsx
+var import_phosphor_react6 = require("phosphor-react");
 var import_jsx_runtime18 = require("react/jsx-runtime");
-function WalletComponent({ totalBalance, addFoundsLink, bgColor = "$red600", labelColor = "$gray100" }) {
+function WalletComponent({ totalBalance, bgColor = "$red600", labelColor = "$gray100" }) {
+  const [showBalance, setShowBalance] = (0, import_react6.useState)(true);
   return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(Wallet, { children: /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)(Balance, { css: { backgroundColor: bgColor }, children: [
     /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)(BoxLeft2, { children: [
       /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(Title4, { css: { color: labelColor }, children: "Total Balance" }),
-      /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(Total, { children: totalBalance ? totalBalance.toLocaleString("pt-BR", { style: "currency", currency: "BRL" }) : null })
+      /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(Total, { children: showBalance ? totalBalance ? totalBalance.toLocaleString("pt-BR", { style: "currency", currency: "BRL" }) : "R$ 0,00" : "R$ \u2022\u2022\u2022\u2022\u2022" })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(BoxRight2, { children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("a", { href: addFoundsLink, children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
-      import_ControlPointRounded.default,
+    /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(BoxRight2, { children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(ShowBalance, { children: showBalance ? /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+      import_phosphor_react6.Eye,
       {
-        sx: {
-          color: "white",
-          fontSize: "2.5rem",
-          marginTop: "1rem"
-        }
+        onClick: () => setShowBalance(!showBalance)
+      }
+    ) : /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+      import_phosphor_react6.EyeClosed,
+      {
+        onClick: () => setShowBalance(!showBalance)
       }
     ) }) })
   ] }) });

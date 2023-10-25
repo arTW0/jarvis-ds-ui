@@ -36,5 +36,21 @@ export const BoxLeft = styled('div', {
 
 export const BoxRight = styled('div', {
   padding: 0,
-  color: '$gray100'
+  background: 'transparent',
+})
+
+export const ShowBalance = styled('button', {
+  background: 'transparent',
+  border: 'none',
+  padding: 0,
+  marginTop: '$4',
+  cursor: 'pointer',
+  display: 'flex',
+  alignItems: 'center',
+  color: '$gray100',
+
+  svg: {
+    width: '$8',
+    height: '$8',
+  },
 })

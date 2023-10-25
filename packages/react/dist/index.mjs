@@ -631,10 +631,7 @@ function ActionSheet({ labelButton, children }) {
 ActionSheet.displayName = "ActionSheet";
 
 // src/components/BottomMenu/index.tsx
-import LeaderboardRoundedIcon from "@mui/icons-material/LeaderboardRounded";
-import PersonRoundedIcon from "@mui/icons-material/PersonRounded";
-import AppsRoundedIcon from "@mui/icons-material/AppsRounded";
-import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
+import { UserCircle, ChartBar, SquaresFour, GearSix } from "phosphor-react";
 
 // src/components/BottomMenu/styles.ts
 var BottomBox = styled("div", {
@@ -669,6 +666,10 @@ var ItemContent = styled("div", {
   color: "$red600",
   paddinTop: "$4",
   marginBottom: "$px",
+  svg: {
+    width: "$7",
+    height: "$7"
+  },
   ".active": {
     borderRadius: "$full",
     backgroundColor: "$red600",
@@ -681,20 +682,17 @@ var ItemContent = styled("div", {
 import { jsx as jsx6, jsxs as jsxs5 } from "react/jsx-runtime";
 function BottomMenu({ appsLink, settingsLink, overviewLink, profileLink, active }) {
   return /* @__PURE__ */ jsxs5(BottomBox, { children: [
-    /* @__PURE__ */ jsx6(Item, { href: profileLink, children: /* @__PURE__ */ jsx6(ItemContent, { children: /* @__PURE__ */ jsx6(PersonRoundedIcon, { className: active == "profile" ? "active" : "" }) }) }),
-    /* @__PURE__ */ jsx6(Item, { href: appsLink, children: /* @__PURE__ */ jsx6(ItemContent, { children: /* @__PURE__ */ jsx6(LeaderboardRoundedIcon, { className: active == "overview" ? "active" : "" }) }) }),
-    /* @__PURE__ */ jsx6(Item, { href: overviewLink, children: /* @__PURE__ */ jsx6(ItemContent, { children: /* @__PURE__ */ jsx6(AppsRoundedIcon, { className: active == "apps" ? "active" : "" }) }) }),
-    /* @__PURE__ */ jsx6(Item, { href: settingsLink, children: /* @__PURE__ */ jsx6(ItemContent, { children: /* @__PURE__ */ jsx6(SettingsRoundedIcon, { className: active == "settings" ? "active" : "" }) }) })
+    /* @__PURE__ */ jsx6(Item, { href: profileLink, children: /* @__PURE__ */ jsx6(ItemContent, { children: /* @__PURE__ */ jsx6(UserCircle, { className: active == "profile" ? "active" : "" }) }) }),
+    /* @__PURE__ */ jsx6(Item, { href: appsLink, children: /* @__PURE__ */ jsx6(ItemContent, { children: /* @__PURE__ */ jsx6(ChartBar, { className: active == "overview" ? "active" : "" }) }) }),
+    /* @__PURE__ */ jsx6(Item, { href: overviewLink, children: /* @__PURE__ */ jsx6(ItemContent, { children: /* @__PURE__ */ jsx6(SquaresFour, { className: active == "apps" ? "active" : "" }) }) }),
+    /* @__PURE__ */ jsx6(Item, { href: settingsLink, children: /* @__PURE__ */ jsx6(ItemContent, { children: /* @__PURE__ */ jsx6(GearSix, { className: active == "settings" ? "active" : "" }) }) })
   ] });
 }
 BottomMenu.displayName = "BottomMenu";
 
 // src/components/Cards/index.tsx
-import MoreHorizRoundedIcon from "@mui/icons-material/MoreHorizRounded";
-import EditRoundedIcon from "@mui/icons-material/EditRounded";
-import UpgradeRoundedIcon from "@mui/icons-material/UpgradeRounded";
-import CreditCardOffRoundedIcon from "@mui/icons-material/CreditCardOffRounded";
 import { useState as useState2 } from "react";
+import { DotsThreeOutline, PencilSimple, CaretDoubleUp, Trash } from "phosphor-react";
 
 // src/components/Cards/styles.ts
 var CardBox = styled("section", {
@@ -783,21 +781,25 @@ var DropdownButton = styled("button", {
   cursor: "pointer",
   fontWeight: "$bold",
   backgroundColor: "transparent",
-  border: "none"
+  border: "none",
+  svg: {
+    width: "$6",
+    height: "$6"
+  }
 });
 var DropdownContent = styled("button", {
   position: "absolute",
   left: "-10px",
   minWidth: "$18",
   marginLeft: "-70px",
-  background: "$red500",
-  borderRadius: "$4",
-  boxShadow: "0 $1 $8 rgba(0, 0, 0, 0.1)",
-  backdropFilter: "blur(5.9px)",
+  background: "$red100",
+  borderRadius: "$lg",
+  boxShadow: "0 $1 $8 rgba(0, 0, 0, 0.6)",
+  backdropFilter: "blur(6.3px)",
   WebkitBackdropFilter: "blur(5.9px)",
   border: "$px solid rgba(255, 255, 255, 0.3)",
   "a": {
-    color: "$white",
+    color: "$gray600",
     padding: "$3 $4",
     textDecoration: "none",
     display: "block"
@@ -806,7 +808,7 @@ var DropdownContent = styled("button", {
     display: "flex",
     alignItems: "center",
     ".icon": {
-      color: "$white",
+      color: "$gray600",
       marginLeft: "$2",
       fontSize: "$2xl"
     }
@@ -826,25 +828,20 @@ function Cards({ balanceValue, cardNumber, cvv, expiryDate, linkDelete, linkEdit
         DropdownButton,
         {
           onClick: handleDropdownOpen,
-          children: /* @__PURE__ */ jsx7(
-            MoreHorizRoundedIcon,
-            {
-              sx: { fontSize: "2rem" }
-            }
-          )
+          children: /* @__PURE__ */ jsx7(DotsThreeOutline, {})
         }
       ),
       open ? /* @__PURE__ */ jsxs6(DropdownContent, { children: [
         /* @__PURE__ */ jsxs6("div", { children: [
-          /* @__PURE__ */ jsx7(EditRoundedIcon, { className: "icon" }),
+          /* @__PURE__ */ jsx7(PencilSimple, { className: "icon" }),
           /* @__PURE__ */ jsx7("a", { href: linkEdit, children: "Editar" })
         ] }),
         /* @__PURE__ */ jsxs6("div", { children: [
-          /* @__PURE__ */ jsx7(UpgradeRoundedIcon, { className: "icon" }),
+          /* @__PURE__ */ jsx7(CaretDoubleUp, { className: "icon" }),
           /* @__PURE__ */ jsx7("a", { href: linkUpdate, children: "Atualizar" })
         ] }),
         /* @__PURE__ */ jsxs6("div", { children: [
-          /* @__PURE__ */ jsx7(CreditCardOffRoundedIcon, { className: "icon" }),
+          /* @__PURE__ */ jsx7(Trash, { className: "icon" }),
           /* @__PURE__ */ jsx7("a", { href: linkDelete, children: "Excluir" })
         ] })
       ] }) : null
@@ -1257,20 +1254,20 @@ var IconBox = styled("div", {
   fontSize: "$6",
   display: "inline-flex",
   alignItems: "center",
-  justifyContent: "center"
+  justifyContent: "center",
+  svg: {
+    width: "$6",
+    height: "$6"
+  }
 });
 
 // src/components/MonthlyGoals/index.tsx
 import PixRoundedIcon from "@mui/icons-material/PixRounded";
-import CreditCardRoundedIcon from "@mui/icons-material/CreditCardRounded";
-import AttachMoneyRoundedIcon from "@mui/icons-material/AttachMoneyRounded";
-import ShoppingBasketRoundedIcon from "@mui/icons-material/ShoppingBasketRounded";
-import AccountBalanceRoundedIcon from "@mui/icons-material/AccountBalanceRounded";
-import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
+import { CurrencyDollar, CreditCard, ShoppingCartSimple, Bank, House } from "phosphor-react";
 import { jsx as jsx13, jsxs as jsxs12 } from "react/jsx-runtime";
 function MonthlyBills({ categoryIcon, description, pageToPay, price, bgColor = "$red600", buttonColor = "$gray200", labelButtonColor = "$gray600" }) {
   return /* @__PURE__ */ jsxs12(Bill, { css: { backgroundColor: bgColor }, children: [
-    /* @__PURE__ */ jsx13("div", { className: "wrapper", children: /* @__PURE__ */ jsx13(IconBox, { children: categoryIcon === "pix" ? /* @__PURE__ */ jsx13(PixRoundedIcon, {}) : categoryIcon === "credit-card" ? /* @__PURE__ */ jsx13(CreditCardRoundedIcon, {}) : categoryIcon === "transfer" ? /* @__PURE__ */ jsx13(AttachMoneyRoundedIcon, {}) : categoryIcon === "shopping" ? /* @__PURE__ */ jsx13(ShoppingBasketRoundedIcon, {}) : categoryIcon === "loan" ? /* @__PURE__ */ jsx13(AccountBalanceRoundedIcon, {}) : categoryIcon === "rent" ? /* @__PURE__ */ jsx13(HomeRoundedIcon, {}) : null }) }),
+    /* @__PURE__ */ jsx13("div", { className: "wrapper", children: /* @__PURE__ */ jsx13(IconBox, { children: categoryIcon === "pix" ? /* @__PURE__ */ jsx13(PixRoundedIcon, {}) : categoryIcon === "credit-card" ? /* @__PURE__ */ jsx13(CreditCard, {}) : categoryIcon === "transfer" ? /* @__PURE__ */ jsx13(CurrencyDollar, {}) : categoryIcon === "shopping" ? /* @__PURE__ */ jsx13(ShoppingCartSimple, {}) : categoryIcon === "loan" ? /* @__PURE__ */ jsx13(Bank, {}) : categoryIcon === "rent" ? /* @__PURE__ */ jsx13(House, {}) : null }) }),
     /* @__PURE__ */ jsx13("div", { className: "price", children: price.toLocaleString("pt-BR", { style: "currency", currency: "BRL" }) }),
     /* @__PURE__ */ jsx13("p", { children: description }),
     /* @__PURE__ */ jsx13(
@@ -1472,7 +1469,7 @@ function Transactions({ title, amount, category, key, type, bgColor = "$gray500"
 }
 
 // src/components/Wallet/index.tsx
-import ControlPointRoundedIcon from "@mui/icons-material/ControlPointRounded";
+import { useState as useState5 } from "react";
 
 // src/components/Wallet/styles.ts
 var Wallet = styled("div", {
@@ -1506,25 +1503,42 @@ var BoxLeft2 = styled("div", {
 });
 var BoxRight2 = styled("div", {
   padding: 0,
-  color: "$gray100"
+  background: "transparent"
+});
+var ShowBalance = styled("button", {
+  background: "transparent",
+  border: "none",
+  padding: 0,
+  marginTop: "$4",
+  cursor: "pointer",
+  display: "flex",
+  alignItems: "center",
+  color: "$gray100",
+  svg: {
+    width: "$8",
+    height: "$8"
+  }
 });
 
 // src/components/Wallet/index.tsx
+import { EyeClosed, Eye } from "phosphor-react";
 import { jsx as jsx17, jsxs as jsxs16 } from "react/jsx-runtime";
-function WalletComponent({ totalBalance, addFoundsLink, bgColor = "$red600", labelColor = "$gray100" }) {
+function WalletComponent({ totalBalance, bgColor = "$red600", labelColor = "$gray100" }) {
+  const [showBalance, setShowBalance] = useState5(true);
   return /* @__PURE__ */ jsx17(Wallet, { children: /* @__PURE__ */ jsxs16(Balance, { css: { backgroundColor: bgColor }, children: [
     /* @__PURE__ */ jsxs16(BoxLeft2, { children: [
       /* @__PURE__ */ jsx17(Title4, { css: { color: labelColor }, children: "Total Balance" }),
-      /* @__PURE__ */ jsx17(Total, { children: totalBalance ? totalBalance.toLocaleString("pt-BR", { style: "currency", currency: "BRL" }) : null })
+      /* @__PURE__ */ jsx17(Total, { children: showBalance ? totalBalance ? totalBalance.toLocaleString("pt-BR", { style: "currency", currency: "BRL" }) : "R$ 0,00" : "R$ \u2022\u2022\u2022\u2022\u2022" })
     ] }),
-    /* @__PURE__ */ jsx17(BoxRight2, { children: /* @__PURE__ */ jsx17("a", { href: addFoundsLink, children: /* @__PURE__ */ jsx17(
-      ControlPointRoundedIcon,
+    /* @__PURE__ */ jsx17(BoxRight2, { children: /* @__PURE__ */ jsx17(ShowBalance, { children: showBalance ? /* @__PURE__ */ jsx17(
+      Eye,
       {
-        sx: {
-          color: "white",
-          fontSize: "2.5rem",
-          marginTop: "1rem"
-        }
+        onClick: () => setShowBalance(!showBalance)
+      }
+    ) : /* @__PURE__ */ jsx17(
+      EyeClosed,
+      {
+        onClick: () => setShowBalance(!showBalance)
       }
     ) }) })
   ] }) });
